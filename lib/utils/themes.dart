@@ -24,10 +24,15 @@ ThemeData theme() {
         ),
       ),
       elevatedButtonTheme: const ElevatedButtonThemeData(
-        style: ButtonStyle(
+        style: ButtonStyle( 
           backgroundColor: MaterialStatePropertyAll(
             Color(0xFFFF9D01),
           ),
+        ),
+      ),
+      iconTheme: const IconThemeData(
+        color: Color(
+          0xFFFF9D01,
         ),
       )
 

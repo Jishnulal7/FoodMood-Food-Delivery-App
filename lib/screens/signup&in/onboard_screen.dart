@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivery/screens/signup&in/signin_screen.dart';
+import 'package:food_delivery/screens/signup&in/signup_screen.dart';
 import '../../models/onboard_content_model.dart';
 
 class OnBoardScreen extends StatefulWidget {
@@ -125,7 +125,7 @@ class _OnBoardScreenState extends State<OnBoardScreen> {
                       Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const SignInScreen(),
+                          builder: (context) => const SignUpScreen(),
                         ),
                       );
                     }

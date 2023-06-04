@@ -15,6 +15,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
   final _phoneController = TextEditingController();
+
+  bool isChecked = false;
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -57,9 +60,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 24),
-                child: TextFormField(
+                child: TextFormField(keyboardType: TextInputType.name,
                   controller: _nameController,
-                  decoration: const InputDecoration(
+                  decoration: const InputDecoration(border: InputBorder.none,
                     filled: true,
                     fillColor: Color(0xFFF5F5F5),
                     contentPadding: EdgeInsets.all(20),
@@ -77,7 +80,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 padding: const EdgeInsets.symmetric(horizontal: 24),
                 child: TextFormField(
                   controller: _emailController,
-                  decoration: const InputDecoration(
+                  decoration: const InputDecoration(border: InputBorder.none,
                     filled: true,
                     fillColor: Color(0xFFF5F5F5),
                     contentPadding: EdgeInsets.all(20),
@@ -94,8 +97,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 24),
                 child: TextFormField(
+                  keyboardType: TextInputType.phone,
                   controller: _phoneController,
                   decoration: const InputDecoration(
+                    border: InputBorder.none,
                     filled: true,
                     fillColor: Color(0xFFF5F5F5),
                     contentPadding: EdgeInsets.all(20),
@@ -114,7 +119,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 child: TextFormField(
                   controller: _passwordController,
                   obscureText: true,
-                  decoration: const InputDecoration(
+                  decoration: const InputDecoration(border: InputBorder.none,
                     filled: true,
                     fillColor: Color(0xFFF5F5F5),
                     contentPadding: EdgeInsets.all(20),
@@ -139,10 +144,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   ),
                 ),
                 onPressed: () {
-                    Navigator.pushReplacement(context,
-                          MaterialPageRoute(builder: (context) {
-                        return const HomeScreen();
-                      }));
+                  Navigator.pushReplacement(context,
+                      MaterialPageRoute(builder: (context) {
+                    return const HomeScreen();
+                  }));
                 },
                 child: const Text(
                   'Sign Up',
@@ -155,27 +160,53 @@ class _SignUpScreenState extends State<SignUpScreen> {
               const SizedBox(
                 height: 16,
               ),
-              const Row(
+              Row(
                 children: [
-                  SizedBox(
+                  const SizedBox(
                     width: 24,
                   ),
-                  // Checkbox(
-                  //   value: ,
-                  //   onChanged: ,
-                  // ),
-                  SizedBox(
+                  Checkbox(
+                    activeColor: Theme.of(context).primaryColor,
+                    value: isChecked,
+                    onChanged: (newState) {
+                      setState(() {
+                        isChecked = newState!;
+                      });
+                    },
+                  ),
+                  const SizedBox(
                     width: 8,
                   ),
-                  Text(
-                    'I agree to the terms & conditions and privacy policy',
+                  const Text(
+                    'I agree to the',
                   ),
+                  const SizedBox(
+                    width: 3,
+                  ),
+                  Text(
+                    'terms & conditions',
+                    style: TextStyle(color: Theme.of(context).primaryColor),
+                  ),
+                  const SizedBox(
+                    width: 3,
+                  ),
+                  const Text(
+                    'and',
+                  ),
+                  const SizedBox(
+                    width: 3,
+                  ),
+                  Text(
+                    'privacy policy',
+                    style: TextStyle(color: Theme.of(context).primaryColor),
+                  )
                 ],
               ),
               const SizedBox(
-                height: 32,
+                height: 16,
               ),
-              Row(mainAxisAlignment: MainAxisAlignment.center,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const Text(
                     'Already have an account?',

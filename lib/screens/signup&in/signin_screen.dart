@@ -64,6 +64,7 @@ class _SignInScreenState extends State<SignInScreen> {
                 child: TextFormField(
                   controller: _emailController,
                   decoration: const InputDecoration(
+                    border: InputBorder.none,
                     filled: true,
                     fillColor: Color(0xFFF5F5F5),
                     contentPadding: EdgeInsets.all(20),
@@ -83,6 +84,7 @@ class _SignInScreenState extends State<SignInScreen> {
                   controller: _passwordController,
                   obscureText: true,
                   decoration: const InputDecoration(
+                    border: InputBorder.none,
                     filled: true,
                     fillColor: Color(0xFFF5F5F5),
                     contentPadding: EdgeInsets.all(20),
@@ -100,8 +102,8 @@ class _SignInScreenState extends State<SignInScreen> {
                 height: 16,
               ),
               GestureDetector(
-                onTap: (){
-                   Navigator.pushReplacement(context,
+                onTap: () {
+                  Navigator.pushReplacement(context,
                       MaterialPageRoute(builder: (context) {
                     return const ForgotPasswordScreen();
                   }));

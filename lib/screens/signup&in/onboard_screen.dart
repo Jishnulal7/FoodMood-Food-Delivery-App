@@ -118,7 +118,7 @@ class _OnBoardScreenState extends State<OnBoardScreen> {
                 color: Theme.of(context).primaryColor,
                 child: ElevatedButton(
                   child: Text(
-                    currentIndex == contents.length - 1 ? 'Continue' : 'Next',
+                    currentIndex == contents.length - 1 ? 'Get Moody' : 'Next',
                   ),
                   onPressed: () {
                     if (currentIndex == contents.length - 1) {

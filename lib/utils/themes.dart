@@ -3,54 +3,58 @@ import 'package:google_fonts/google_fonts.dart';
 
 ThemeData theme() {
   return ThemeData(
-      primaryColor: const Color(0xFFFF9D01),
-      // primaryColorDark:
-      // primaryColorLight:
-      scaffoldBackgroundColor: Colors.white,
-      fontFamily: GoogleFonts.lato().fontFamily,
-      appBarTheme: const AppBarTheme(
-        color: Colors.white,
-        elevation: 0,
-        centerTitle: true,
-        iconTheme: IconThemeData(
-          color: Color(
-            0xFFFF9D01,
-          ),
-        ),
-        titleTextStyle: TextStyle(
-          color: Color(0xFFFF9D01),
-          fontWeight: FontWeight.bold,
-          fontSize: 24,
-        ),
-      ),
-      elevatedButtonTheme: const ElevatedButtonThemeData(
-        style: ButtonStyle( 
-          backgroundColor: MaterialStatePropertyAll(
-            Color(0xFFFF9D01),
-          ),
-        ),
-      ),
-      iconTheme: const IconThemeData(
+    primaryColor: const Color(0xFFFF9D01),
+    // primaryColorDark:
+    // primaryColorLight:
+    scaffoldBackgroundColor: Colors.white,
+    fontFamily: GoogleFonts.lato().fontFamily,
+    appBarTheme: const AppBarTheme(
+      color: Colors.white,
+      elevation: 0,
+      centerTitle: true,
+      iconTheme: IconThemeData(
         color: Color(
           0xFFFF9D01,
         ),
-      )
+      ),
+      titleTextStyle: TextStyle(
+        color: Color(0xFFFF9D01),
+        fontWeight: FontWeight.bold,
+        fontSize: 24,
+      ),
+    ),
+    elevatedButtonTheme: const ElevatedButtonThemeData(
+      style: ButtonStyle(
+        backgroundColor: MaterialStatePropertyAll(
+          Color(0xFFFF9D01),
+        ),
+      ),
+    ),
+    iconTheme: const IconThemeData(
+      color: Color(
+        0xFFFF9D01,
+      ),
+    ),
 
-      // textTheme: const TextTheme(
-      //     displayLarge: TextStyle(
-      //       color: Color(0xFF161616),
-      //       fontWeight: FontWeight.bold,
-      //       fontSize: 18,
-      //     ),
-      //     displayMedium: TextStyle(
-      //       color: Color(0xFF161616),
-      //       fontWeight: FontWeight.bold,
-      //       fontSize: 16,
-      //     ),
-      //     displaySmall: TextStyle(
-      //       color: Color(0xFF161616),
-      //       fontWeight: FontWeight.normal,
-      //       fontSize: 12,
-      //     )),
-      );
+    textTheme: const TextTheme(
+        displayLarge: TextStyle(
+          color: Color(0xFF161616),
+          fontWeight: FontWeight.bold,
+          fontSize: 18,
+        ),
+        displayMedium: TextStyle(
+          color:Color(0xFFFF9D01),
+          fontWeight: FontWeight.bold,
+          fontSize: 16,
+        ),
+        displaySmall: TextStyle(
+          color: Color(0xFF161616),
+          fontWeight: FontWeight.bold,
+          fontSize: 16,
+        ),
+        bodyMedium: TextStyle(
+          color: Color(0xFF161616),
+          fontWeight: FontWeight.normal,
+          fontSize: 16, ),
+  ));
 }

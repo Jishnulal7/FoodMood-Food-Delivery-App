@@ -34,7 +34,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 child: Align(
                   alignment: Alignment.topLeft,
                   child: IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
                     icon: const Icon(
                       Icons.arrow_back_ios_new,
                     ),
@@ -60,9 +62,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 24),
-                child: TextFormField(keyboardType: TextInputType.name,
+                child: TextFormField(
+                  keyboardType: TextInputType.name,
                   controller: _nameController,
-                  decoration: const InputDecoration(border: InputBorder.none,
+                  decoration: const InputDecoration(
+                    border: InputBorder.none,
                     filled: true,
                     fillColor: Color(0xFFF5F5F5),
                     contentPadding: EdgeInsets.all(20),
@@ -80,7 +84,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 padding: const EdgeInsets.symmetric(horizontal: 24),
                 child: TextFormField(
                   controller: _emailController,
-                  decoration: const InputDecoration(border: InputBorder.none,
+                  decoration: const InputDecoration(
+                    border: InputBorder.none,
                     filled: true,
                     fillColor: Color(0xFFF5F5F5),
                     contentPadding: EdgeInsets.all(20),
@@ -119,7 +124,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 child: TextFormField(
                   controller: _passwordController,
                   obscureText: true,
-                  decoration: const InputDecoration(border: InputBorder.none,
+                  decoration: const InputDecoration(
+                    border: InputBorder.none,
                     filled: true,
                     fillColor: Color(0xFFF5F5F5),
                     contentPadding: EdgeInsets.all(20),
@@ -163,7 +169,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               Row(
                 children: [
                   const SizedBox(
-                    width: 24,
+                    width: 10,
                   ),
                   Checkbox(
                     activeColor: Theme.of(context).primaryColor,
@@ -173,9 +179,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         isChecked = newState!;
                       });
                     },
-                  ),
-                  const SizedBox(
-                    width: 8,
                   ),
                   const Text(
                     'I agree to the',
@@ -198,7 +201,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   ),
                   Text(
                     'privacy policy',
-                    style: TextStyle(color: Theme.of(context).primaryColor),
+                    style: TextStyle(
+                      color: Theme.of(context).primaryColor,
+                    ),
                   )
                 ],
               ),
@@ -213,6 +218,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     style: TextStyle(
                       fontSize: 14,
                     ),
+                  ),
+                  const SizedBox(
+                    width: 5,
                   ),
                   GestureDetector(
                     onTap: () {

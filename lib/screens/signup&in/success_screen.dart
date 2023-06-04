@@ -23,7 +23,9 @@ class _SuccessScreenState extends State<SuccessScreen> {
               child: Align(
                 alignment: Alignment.topLeft,
                 child: IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
                   icon: const Icon(
                     Icons.arrow_back_ios_new,
                   ),
@@ -63,7 +65,8 @@ class _SuccessScreenState extends State<SuccessScreen> {
             Text(
               'Don’t forget the password again :)',
               style: Theme.of(context).textTheme.bodyMedium,
-            ),const SizedBox(
+            ),
+            const SizedBox(
               height: 90,
             ),
             ElevatedButton(

@@ -25,7 +25,9 @@ class _OtpScreenState extends State<OtpScreen> {
               child: Align(
                 alignment: Alignment.topLeft,
                 child: IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
                   icon: const Icon(
                     Icons.arrow_back_ios_new,
                   ),
@@ -179,10 +181,10 @@ class _OtpScreenState extends State<OtpScreen> {
                 ),
               ),
               onPressed: () {
-                 Navigator.pushReplacement(context,
-                      MaterialPageRoute(builder: (context) {
-                    return const ResetPasswordScreen();
-                  }));
+                Navigator.pushReplacement(context,
+                    MaterialPageRoute(builder: (context) {
+                  return const ResetPasswordScreen();
+                }));
               },
               child: const Text(
                 'Verify',

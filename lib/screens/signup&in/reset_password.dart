@@ -20,7 +20,9 @@ class ResetPasswordScreen extends StatelessWidget {
                 child: Align(
                   alignment: Alignment.topLeft,
                   child: IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
                     icon: const Icon(
                       Icons.arrow_back_ios_new,
                     ),

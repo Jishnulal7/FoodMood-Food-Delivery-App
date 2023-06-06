@@ -166,46 +166,47 @@ class _SignUpScreenState extends State<SignUpScreen> {
               const SizedBox(
                 height: 16,
               ),
-              Row(
-                children: [
-                  const SizedBox(
-                    width: 10,
-                  ),
-                  Checkbox(
-                    activeColor: Theme.of(context).primaryColor,
-                    value: isChecked,
-                    onChanged: (newState) {
-                      setState(() {
-                        isChecked = newState!;
-                      });
-                    },
-                  ),
-                  const Text(
-                    'I agree to the',
-                  ),
-                  const SizedBox(
-                    width: 3,
-                  ),
-                  Text(
-                    'terms & conditions',
-                    style: TextStyle(color: Theme.of(context).primaryColor),
-                  ),
-                  const SizedBox(
-                    width: 3,
-                  ),
-                  const Text(
-                    'and',
-                  ),
-                  const SizedBox(
-                    width: 3,
-                  ),
-                  Text(
-                    'privacy policy',
-                    style: TextStyle(
-                      color: Theme.of(context).primaryColor,
+              SingleChildScrollView(scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: [
+                    Checkbox(
+                      activeColor: Theme.of(context).primaryColor,
+                      value: isChecked,
+                      onChanged: (newState) {
+                        setState(() {
+                          isChecked = newState!;
+                        });
+                      },
                     ),
-                  )
-                ],
+                    const Text(
+                      'I agree to the',
+                    ),
+                    const SizedBox(
+                      width: 3,
+                    ),
+                    Text(
+                      'Terms&conditions',
+                      style: TextStyle(
+                        color: Theme.of(context).primaryColor,
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 3,
+                    ),
+                    const Text(
+                      'and',
+                    ),
+                    const SizedBox(
+                      width: 3,
+                    ),
+                    Text(
+                      'Privacy policy',
+                      style: TextStyle(
+                        color: Theme.of(context).primaryColor,
+                      ),
+                    )
+                  ],
+                ),
               ),
               const SizedBox(
                 height: 16,

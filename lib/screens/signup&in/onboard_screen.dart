@@ -72,7 +72,7 @@ class _OnBoardScreenState extends State<OnBoardScreen> {
                     children: [
                       Image.asset(contents[index].image),
                       const SizedBox(
-                        height: 75,
+                        height: 55,
                       ),
                       Text(
                         contents[index].title,

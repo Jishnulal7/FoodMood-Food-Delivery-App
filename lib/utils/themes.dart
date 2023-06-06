@@ -10,6 +10,7 @@ ThemeData theme() {
     fontFamily: GoogleFonts.lato().fontFamily,
     appBarTheme: const AppBarTheme(
       color: Colors.white,
+      toolbarHeight: 70,
       elevation: 0,
       centerTitle: true,
       iconTheme: IconThemeData(
@@ -35,26 +36,32 @@ ThemeData theme() {
         0xFFFF9D01,
       ),
     ),
-
     textTheme: const TextTheme(
-        displayLarge: TextStyle(
-          color: Color(0xFF161616),
-          fontWeight: FontWeight.bold,
-          fontSize: 18,
-        ),
-        displayMedium: TextStyle(
-          color:Color(0xFFFF9D01),
-          fontWeight: FontWeight.bold,
-          fontSize: 16,
-        ),
-        displaySmall: TextStyle(
-          color: Color(0xFF161616),
-          fontWeight: FontWeight.bold,
-          fontSize: 16,
-        ),
-        bodyMedium: TextStyle(
-          color: Color(0xFF161616),
-          fontWeight: FontWeight.normal,
-          fontSize: 16, ),
-  ));
+      displayLarge: TextStyle(
+        color: Color(0xFF161616),
+        fontWeight: FontWeight.bold,
+        fontSize: 18,
+      ),
+      displayMedium: TextStyle(
+        color: Color(0xFFFF9D01),
+        fontWeight: FontWeight.bold,
+        fontSize: 16,
+      ),
+      displaySmall: TextStyle(
+        color: Color(0xFF161616),
+        fontWeight: FontWeight.bold,
+        fontSize: 16,
+      ),
+      bodyMedium: TextStyle(
+        color: Color(0xFF161616),
+        fontWeight: FontWeight.normal,
+        fontSize: 16,
+      ),
+      bodySmall: TextStyle(
+        color: Color(0xFF161616),
+        fontWeight: FontWeight.normal,
+        fontSize: 12,
+      ),
+    ),
+  );
 }

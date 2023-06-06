@@ -52,6 +52,7 @@ class _OtpScreenState extends State<OtpScreen> {
               height: 16,
             ),
             const Text(
+              textAlign: TextAlign.center,
               'A 4 digit code has been sent to your Email/Mobile number',
               style: TextStyle(
                 fontSize: 16,

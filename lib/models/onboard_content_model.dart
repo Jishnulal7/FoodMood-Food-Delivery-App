@@ -22,9 +22,11 @@ List<ContentModel> contents = [
     image: 'assets/images/onboard3.png',
     title: '24/7 support for you',
     desc: 'Something came up? Talk to a real person. We are here to help',
-  ), ContentModel(
+  ),
+  ContentModel(
     image: 'assets/images/onboard4.png',
     title: 'Eat it in your own cozy comfort',
-    desc: 'Want a food of your mood? Get your tummies filled with the edible good',
-  )
+    desc:
+        'Want a food of your mood? Get your tummies filled with the edible good',
+  ),
 ];

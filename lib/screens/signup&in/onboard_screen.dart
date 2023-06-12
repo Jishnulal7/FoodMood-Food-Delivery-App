@@ -34,9 +34,7 @@ class _OnBoardScreenState extends State<OnBoardScreen> {
         body: Column(
           children: [
             Container(
-              padding: const EdgeInsets.all(
-                20,
-              ),
+              padding: const EdgeInsets.all(20),
               alignment: Alignment.topRight,
               child: TextButton(
                 child: Visibility(
@@ -49,7 +47,7 @@ class _OnBoardScreenState extends State<OnBoardScreen> {
                   ),
                 ),
                 onPressed: () {
-                   _pageController.animateToPage(
+                  _pageController.animateToPage(
                     contents.length - 1,
                     duration: const Duration(milliseconds: 500),
                     curve: Curves.ease,
@@ -70,7 +68,9 @@ class _OnBoardScreenState extends State<OnBoardScreen> {
                   padding: const EdgeInsets.all(40.0),
                   child: Column(
                     children: [
-                      Image.asset(contents[index].image),
+                      Image.asset(
+                        contents[index].image,
+                      ),
                       const SizedBox(
                         height: 55,
                       ),
@@ -101,13 +101,11 @@ class _OnBoardScreenState extends State<OnBoardScreen> {
                 ),
               ),
             ),
-            Container(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: List.generate(
-                  contents.length,
-                  (index) => buildDot(index, context),
-                ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: List.generate(
+                contents.length,
+                (index) => buildDot(index, context),
               ),
             ),
             Padding(
@@ -130,7 +128,9 @@ class _OnBoardScreenState extends State<OnBoardScreen> {
                       );
                     }
                     _pageController.nextPage(
-                        duration: const Duration(milliseconds: 100),
+                        duration: const Duration(
+                          milliseconds: 100,
+                        ),
                         curve: Curves.bounceIn);
                   },
                 ),

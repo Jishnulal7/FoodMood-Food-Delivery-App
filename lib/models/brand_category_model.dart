@@ -36,7 +36,7 @@ class BrandCategory extends Equatable {
     ),
     BrandCategory(
       id: 3,
-      name: 'Burger King',
+      name: 'BurgerKing',
       image: Image.asset(
         'assets/images/Burger_King_logo_(1999) 1.png',
       ),

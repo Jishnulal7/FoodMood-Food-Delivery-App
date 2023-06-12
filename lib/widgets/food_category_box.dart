@@ -18,7 +18,7 @@ class FoodCategoryBox extends StatelessWidget {
       ),
       child: Stack(
         children: [
-          Container(
+          SizedBox(
             height: 144,
             width: 136,
             child: category.image,

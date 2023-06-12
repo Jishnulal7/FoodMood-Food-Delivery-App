@@ -33,7 +33,9 @@ List<Item> generateRandomItems(int count) {
 }
 
 class RandomGridView extends StatelessWidget {
-  final List<Item> items = generateRandomItems(20); // Generate 20 random items
+  final List<Item> items = generateRandomItems(20);
+
+   RandomGridView({super.key}); // Generate 20 random items
 
   @override
   Widget build(BuildContext context) {
@@ -51,13 +53,11 @@ class RandomGridView extends StatelessWidget {
         itemBuilder: (BuildContext context, int index) {
           final item = items[index];
 
-          return Container(
-            child: Column(
-              children: [
-                Image.asset(item.imageUrl),
-                Text(item.text),
-              ],
-            ),
+          return Column(
+            children: [
+              Image.asset(item.imageUrl),
+              Text(item.text),
+            ],
           );
         },
       ),

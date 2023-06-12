@@ -19,9 +19,9 @@ class BrandCategoryBox extends StatelessWidget {
       ),
       child: Stack(
         children: [
-          Container(
-            height: 144,
-            width: 136,
+          SizedBox(
+            height: 150,
+            width: 120,
             child: category.image,
           ),
           Padding(

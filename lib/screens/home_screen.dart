@@ -1,10 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:food_delivery/models/brand_category_model.dart';
+import 'package:food_delivery/models/food_category_model.dart';
+import 'package:food_delivery/widgets/brand_category_box.dart';
 import 'package:food_delivery/widgets/food_category_box.dart';
 import 'package:food_delivery/widgets/searchbar.dart';
 
-import '../models/models.dart';
-
+// import '../models/models.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -59,103 +61,114 @@ class HomeScreen extends StatelessWidget {
           )
         ],
       ),
-      body: Container(
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              const SizedBox(
-                height: 25,
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            const SizedBox(
+              height: 25,
+            ),
+            const SearchBox(),
+            const SizedBox(
+              height: 35,
+            ),
+            Image.asset(
+              'assets/images/60%off.png',
+            ),
+            Padding(
+              padding: const EdgeInsets.only(
+                left: 25,
+                right: 25,
               ),
-              const SearchBox(),
-              const SizedBox(
-                height: 35,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'What’s your mood today?',
+                    style: Theme.of(context).textTheme.displayLarge,
+                  ),
+                  Text(
+                    'View all',
+                    style: Theme.of(context).textTheme.displayMedium,
+                  ),
+                ],
               ),
-              Image.asset(
-                'assets/images/60%off.png',
-              ),
-              Padding(
-                padding: const EdgeInsets.only(
-                  left: 25,
-                  right: 25,
+            ),
+            const SizedBox(
+              height: 16,
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 25),
+              child: SizedBox(
+                height: 100,
+                child: ListView.builder(
+                  shrinkWrap: true,
+                  scrollDirection: Axis.horizontal,
+                  itemCount: FoodCategory.foodCategories.length,
+                  itemBuilder: ((context, index) {
+                    return FoodCategoryBox(
+                      category: FoodCategory.foodCategories[index],
+                    );
+                  }),
                 ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      'What’s your mood today?',
-                      style: Theme.of(context).textTheme.displayLarge,
-                    ),
-                    Text(
-                      'View all',
-                      style: Theme.of(context).textTheme.displayMedium,
-                    ),
-                  ],
-                ),
               ),
-              const SizedBox(
-                height: 16,
+            ),
+            const SizedBox(
+              height: 16,
+            ),
+            Padding(
+              padding: const EdgeInsets.only(
+                left: 25,
+                right: 25,
               ),
-              Padding(
-                padding: const EdgeInsets.only(left: 25),
-                child: SizedBox(
-                  height: 100,
-                  child: ListView.builder(
-                    shrinkWrap: true,
-                    scrollDirection: Axis.horizontal,
-                    itemCount: FoodCategory.foodCategories.length,
-                    itemBuilder: ((context, index) {
-                      return FoodCategoryBox(
-                        category: FoodCategory.foodCategories[index],
-                      );
-                    }),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Popular moods you can get',
+                    style: Theme.of(context).textTheme.displayLarge,
+                  ),
+                  Text(
+                    'View all',
+                    style: Theme.of(context).textTheme.displayMedium,
+                  )
+                ],
+              ),
+            ),
+            const SizedBox(
+              height: 16,
+            ),
+            Padding(
+              padding: const EdgeInsets.only(
+                left: 25,
+              ),
+              child: Container(
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    colors: [
+                      Colors.white,
+                      Theme.of(context).primaryColor,
+                    ],
                   ),
                 ),
-              ),
-              const SizedBox(
-                height: 16,
-              ),
-              Padding(
-                padding: const EdgeInsets.only(
-                  left: 25,
-                  right: 25,
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      'Popular moods you can get',
-                      style: Theme.of(context).textTheme.displayLarge,
-                    ),
-                    Text(
-                      'View all',
-                      style: Theme.of(context).textTheme.displayMedium,
-                    )
-                  ],
+                height: 120,
+                child: ListView.builder(
+                  shrinkWrap: true,
+                  scrollDirection: Axis.horizontal,
+                  itemCount: BrandCategory.brandCategories.length,
+                  itemBuilder: ((context, index) {
+                    return BrandCategoryBox(
+                      category: BrandCategory.brandCategories[index],
+                    );
+                  }),
                 ),
               ),
-              const SizedBox(
-                height: 16,
-              ),
-              Padding(
-                padding: const EdgeInsets.only(
-                  left: 25,
-                ),
-                child: SizedBox(
-                  height: 100,
-                  child: ListView.builder(
-                    shrinkWrap: true,
-                    scrollDirection: Axis.horizontal,
-                    itemCount: BrandCategory.brandCategories.length,
-                    itemBuilder: ((context, index) {
-                      return BrandCategoryBox(
-                        category: BrandCategory.brandCategories[index],
-                      );
-                    }),
-                  ),
-                ),
-              )
-            ],
-          ),
+            ),
+            const SizedBox(
+              height: 100,
+            )
+          ],
         ),
       ),
     );

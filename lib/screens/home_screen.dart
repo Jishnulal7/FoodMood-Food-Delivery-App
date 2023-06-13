@@ -1,12 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:food_delivery/models/brand_category_model.dart';
-import 'package:food_delivery/models/food_category_model.dart';
-import 'package:food_delivery/widgets/brand_category_box.dart';
+import 'package:food_delivery/models/category_model.dart';
 import 'package:food_delivery/widgets/food_category_box.dart';
-import 'package:food_delivery/widgets/searchbar.dart';
-
-// import '../models/models.dart';
+import 'package:food_delivery/widgets/promo_box.dart';
+import '../models/promo_model.dart';
+import '../widgets/search_box.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -14,6 +12,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xFFF5F5F5),
       appBar: AppBar(
         leading: IconButton(
           onPressed: () {},
@@ -61,44 +60,45 @@ class HomeScreen extends StatelessWidget {
           )
         ],
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            const SizedBox(
-              height: 25,
-            ),
-            const SearchBox(),
-            const SizedBox(
-              height: 35,
-            ),
-            Image.asset(
-              'assets/images/60%off.png',
-            ),
-            Padding(
-              padding: const EdgeInsets.only(
-                left: 25,
-                right: 25,
+      body: Padding(
+        padding: const EdgeInsets.only(left: 25, top: 20),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              const SearchBox(),
+              const SizedBox(
+                height: 20,
               ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
+              SizedBox(
+                height: 205,
+                child: ListView.builder(
+                  itemBuilder: (context, index) {
+                    return PromoBox(
+                      promos: Promo.promos[index],
+                    );
+                  },
+                  itemCount: Promo.promos.length,
+                  scrollDirection: Axis.horizontal,
+                  shrinkWrap: true,
+                ),
+              ),
+              const SizedBox(
+                height: 16,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(right: 20),
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
                     'What’s your mood today?',
                     style: Theme.of(context).textTheme.displayLarge,
                   ),
-                  Text(
-                    'View all',
-                    style: Theme.of(context).textTheme.displayMedium,
-                  ),
-                ],
+                ),
               ),
-            ),
-            const SizedBox(
-              height: 16,
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 25),
-              child: SizedBox(
+              const SizedBox(
+                height: 16,
+              ),
+              SizedBox(
                 height: 100,
                 child: ListView.builder(
                   shrinkWrap: true,
@@ -111,64 +111,21 @@ class HomeScreen extends StatelessWidget {
                   }),
                 ),
               ),
-            ),
-            const SizedBox(
-              height: 16,
-            ),
-            Padding(
-              padding: const EdgeInsets.only(
-                left: 25,
-                right: 25,
+              const SizedBox(
+                height: 16,
               ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'Popular moods you can get',
-                    style: Theme.of(context).textTheme.displayLarge,
-                  ),
-                  Text(
-                    'View all',
-                    style: Theme.of(context).textTheme.displayMedium,
-                  )
-                ],
-              ),
-            ),
-            const SizedBox(
-              height: 16,
-            ),
-            Padding(
-              padding: const EdgeInsets.only(
-                left: 25,
-              ),
-              child: Container(
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    colors: [
-                      Colors.white,
-                      Theme.of(context).primaryColor,
-                    ],
-                  ),
-                ),
-                height: 120,
-                child: ListView.builder(
-                  shrinkWrap: true,
-                  scrollDirection: Axis.horizontal,
-                  itemCount: BrandCategory.brandCategories.length,
-                  itemBuilder: ((context, index) {
-                    return BrandCategoryBox(
-                      category: BrandCategory.brandCategories[index],
-                    );
-                  }),
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  'Top Rated',
+                  style: Theme.of(context).textTheme.displayLarge,
                 ),
               ),
-            ),
-            const SizedBox(
-              height: 100,
-            )
-          ],
+              const SizedBox(
+                height: 100,
+              )
+            ],
+          ),
         ),
       ),
     );

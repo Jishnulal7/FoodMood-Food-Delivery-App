@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:food_delivery/models/food_category_model.dart';
+import 'package:food_delivery/models/category_model.dart';
 
 class FoodCategoryBox extends StatelessWidget {
   final FoodCategory category;

@@ -37,35 +37,39 @@ ThemeData theme() {
       ),
     ),
     textTheme: const TextTheme(
-        displayLarge: TextStyle(
-          color: Color(0xFF161616),
-          fontWeight: FontWeight.bold,
-          fontSize: 18,
-        ),
-        displayMedium: TextStyle(
-          color: Color(0xFFFF9D01),
-          fontWeight: FontWeight.bold,
-          fontSize: 16,
-        ),
-        displaySmall: TextStyle(
-          color: Color(0xFF161616),
-          fontWeight: FontWeight.bold,
-          fontSize: 16,
-        ),
-        bodyMedium: TextStyle(
-          color: Color(0xFF161616),
-          fontWeight: FontWeight.normal,
-          fontSize: 16,
-        ),
-        bodySmall: TextStyle(
-          color: Color(0xFF161616),
-          fontWeight: FontWeight.normal,
-          fontSize: 12,
-        ),
-        labelSmall: TextStyle(
-          color: Color(0xFFFFFFFF),
-          fontWeight: FontWeight.bold,
-          fontSize: 17,
-        )),
+      displayLarge: TextStyle(
+        color: Color(0xFF161616),
+        fontWeight: FontWeight.bold,
+        fontSize: 18,
+      ),
+      displayMedium: TextStyle(
+        color: Color(0xFFFF9D01),
+        fontWeight: FontWeight.bold,
+        fontSize: 16,
+      ),
+      displaySmall: TextStyle(
+        color: Color(0xFF161616),
+        fontWeight: FontWeight.bold,
+        fontSize: 16,
+      ),
+      bodyMedium: TextStyle(
+        color: Color(0xFF161616),
+        fontWeight: FontWeight.normal,
+        fontSize: 16,
+      ),
+      bodySmall: TextStyle(
+        color: Color(0xFF161616),
+        fontWeight: FontWeight.normal,
+        fontSize: 12,
+      ),
+      labelSmall: TextStyle(
+        color: Color(0xFFFFFFFF),
+        fontWeight: FontWeight.bold,
+        fontSize: 18,
+      ),labelMedium: TextStyle(
+        color: Color(0xFFFFFFFF),
+        fontWeight: FontWeight.normal,
+        fontSize: 16,
+    )),
   );
 }

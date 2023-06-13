@@ -23,5 +23,30 @@ class MenuItem extends Equatable {
         description,
         price,
       ];
-  static List<MenuItem> menuItem = [];
+  static List<MenuItem> menuItems = [
+    const MenuItem(
+        id: 1,
+        restaurantId: 1,
+        name: 'Burger',
+        description: 'Classic Zinger',
+        price: 199),
+    const MenuItem(
+        id: 1,
+        restaurantId: 1,
+        name: 'Chicken & Fries Bucket',
+        description: 'Crowd-favorite combo Chicken and Medium fries',
+        price: 299),
+    const MenuItem(
+        id: 1,
+        restaurantId: 1,
+        name: 'Buddy Meal',
+        description: '2 Classic Chicken Zingers & Medium Popcorn',
+        price: 530),
+    const MenuItem(
+        id: 1,
+        restaurantId: 1,
+        name: 'Pepsi',
+        description: 'Cold BEverage',
+        price: 50)
+  ];
 }

@@ -66,10 +66,12 @@ ThemeData theme() {
         color: Color(0xFFFFFFFF),
         fontWeight: FontWeight.bold,
         fontSize: 18,
-      ),labelMedium: TextStyle(
+      ),
+      labelMedium: TextStyle(
         color: Color(0xFFFFFFFF),
         fontWeight: FontWeight.normal,
         fontSize: 16,
-    )),
+      ),
+    ),
   );
 }

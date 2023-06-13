@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:food_delivery/models/category_model.dart';
+import 'package:food_delivery/models/restaurant_model.dart';
 import 'package:food_delivery/widgets/food_category_box.dart';
 import 'package:food_delivery/widgets/promo_box.dart';
 import '../models/promo_model.dart';
@@ -44,7 +45,7 @@ class HomeScreen extends StatelessWidget {
             Column(
               children: [
                 Text(
-                  '9, suramya duplex, nr. nigam bus stand.....',
+                  'Mankada,Malappuram',
                   style: Theme.of(context).textTheme.bodySmall,
                 )
               ],
@@ -60,14 +61,16 @@ class HomeScreen extends StatelessWidget {
           )
         ],
       ),
-      body: Padding(
-        padding: const EdgeInsets.only(left: 25, top: 20),
-        child: SingleChildScrollView(
+      body: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
           child: Column(
+            mainAxisSize: MainAxisSize.min,
             children: [
-              const SearchBox(),
-              const SizedBox(
-                height: 20,
+              const Padding(
+                padding: EdgeInsets.all(8.0),
+                child: SearchBox(),
               ),
               SizedBox(
                 height: 205,
@@ -121,12 +124,92 @@ class HomeScreen extends StatelessWidget {
                   style: Theme.of(context).textTheme.displayLarge,
                 ),
               ),
-              const SizedBox(
-                height: 100,
-              )
+              ListView.builder(
+                  scrollDirection: Axis.vertical,
+                  itemCount: 3,
+                  shrinkWrap: true,
+                  itemBuilder: (context, index) {
+                    return RestaurantCard(
+                      restaurants: Restaurant.restaurants[index],
+                    );
+                  }),
             ],
           ),
         ),
+      ),
+    );
+  }
+}
+
+class RestaurantCard extends StatelessWidget {
+  final Restaurant restaurants;
+  const RestaurantCard({
+    super.key,
+    required this.restaurants,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Stack(
+            children: [
+              Container(
+                width: MediaQuery.of(context).size.width,
+                height: 150,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage(restaurants.imageAsset),
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
+              Positioned(
+                top: 10,
+                right: 10,
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(5),
+                  ),
+                  width: 60,
+                  height: 30,
+                  child: Align(
+                    alignment: Alignment.center,
+                    child: Text(
+                      '${restaurants.deliveryTime} min',
+                      style: Theme.of(context)
+                          .textTheme
+                          .labelMedium
+                          ?.copyWith(color: Colors.black),
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                restaurants.name,
+                style: Theme.of(context).textTheme.labelMedium?.copyWith(
+                    color: Colors.black, fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(
+                height: 5,
+              ),
+              Text('${restaurants.tags}'),
+              const SizedBox(
+                height: 5,
+              ),
+              Text('${restaurants.distance}km - ₹${restaurants.deliveryFee}')
+            ],
+          )
+        ],
       ),
     );
   }

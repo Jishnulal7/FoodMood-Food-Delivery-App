@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:food_delivery/models/category_model.dart';
 import 'package:food_delivery/models/restaurant_model.dart';
+import 'package:food_delivery/screens/account_screen.dart';
 import 'package:food_delivery/widgets/food_category_box.dart';
 import 'package:food_delivery/widgets/promo_box.dart';
 import 'package:food_delivery/widgets/restuarant_card.dart';
@@ -54,12 +55,20 @@ class HomeScreen extends StatelessWidget {
           ],
         ),
         actions: [
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(
-              Icons.favorite,
+          Padding(
+            padding: EdgeInsets.all(8.0),
+            child: InkWell(
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return const AccountScreen();
+                }));
+              },
+              child: Icon(
+                Icons.account_circle,
+                size: 40,
+              ),
             ),
-          )
+          ),
         ],
       ),
       body: SingleChildScrollView(
@@ -90,7 +99,7 @@ class HomeScreen extends StatelessWidget {
                 height: 16,
               ),
               Padding(
-                padding: const EdgeInsets.only(right: 20),
+                padding: const EdgeInsets.all(8.0),
                 child: Align(
                   alignment: Alignment.centerLeft,
                   child: Text(
@@ -102,38 +111,45 @@ class HomeScreen extends StatelessWidget {
               const SizedBox(
                 height: 16,
               ),
-              SizedBox(
-                height: 100,
-                child: ListView.builder(
-                  shrinkWrap: true,
-                  scrollDirection: Axis.horizontal,
-                  itemCount: FoodCategory.foodCategories.length,
-                  itemBuilder: ((context, index) {
-                    return FoodCategoryBox(
-                      category: FoodCategory.foodCategories[index],
-                    );
-                  }),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: SizedBox(
+                  height: 100,
+                  child: ListView.builder(
+                    shrinkWrap: true,
+                    scrollDirection: Axis.horizontal,
+                    itemCount: FoodCategory.foodCategories.length,
+                    itemBuilder: ((context, index) {
+                      return FoodCategoryBox(
+                        category: FoodCategory.foodCategories[index],
+                      );
+                    }),
+                  ),
                 ),
               ),
               const SizedBox(
                 height: 16,
               ),
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  'Top Rated',
-                  style: Theme.of(context).textTheme.displayLarge,
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    'Top Rated',
+                    style: Theme.of(context).textTheme.displayLarge,
+                  ),
                 ),
               ),
               ListView.builder(
-                  scrollDirection: Axis.vertical,
-                  itemCount: 3,
-                  shrinkWrap: true,
-                  itemBuilder: (context, index) {
-                    return RestaurantCard(
-                      restaurants: Restaurant.restaurants[index],
-                    );
-                  }),
+                scrollDirection: Axis.vertical,
+                itemCount: 3,
+                shrinkWrap: true,
+                itemBuilder: (context, index) {
+                  return RestaurantCard(
+                    restaurants: Restaurant.restaurants[index],
+                  );
+                },
+              ),
             ],
           ),
         ),

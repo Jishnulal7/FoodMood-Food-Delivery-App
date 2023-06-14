@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:food_delivery/models/restaurant_model.dart';
 
@@ -58,7 +57,9 @@ class RestaurantCard extends StatelessWidget {
               Text(
                 restaurants.name,
                 style: Theme.of(context).textTheme.labelMedium?.copyWith(
-                    color: Colors.black, fontWeight: FontWeight.bold),
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                    ),
               ),
               const SizedBox(
                 height: 5,
@@ -67,9 +68,11 @@ class RestaurantCard extends StatelessWidget {
               const SizedBox(
                 height: 5,
               ),
-              Text('${restaurants.distance}km - ₹${restaurants.deliveryFee} delivery fee')
+              Text(
+                '${restaurants.distance}km - ₹ ${restaurants.deliveryFee} delivery fee',
+              )
             ],
-          )
+          ),
         ],
       ),
     );

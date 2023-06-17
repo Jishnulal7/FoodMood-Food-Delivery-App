@@ -12,7 +12,7 @@ List<Item> generateRandomItems(int count) {
   final Random random = Random();
   final List<String> imagePaths = [
     'assets/images/chinese.png',
-   'assets/images/chinese.png',
+    'assets/images/chinese.png',
     // Add more image paths as needed
   ];
   final List<String> texts = [
@@ -35,7 +35,7 @@ List<Item> generateRandomItems(int count) {
 class RandomGridView extends StatelessWidget {
   final List<Item> items = generateRandomItems(20);
 
-   RandomGridView({super.key}); // Generate 20 random items
+  RandomGridView({super.key}); // Generate 20 random items
 
   @override
   Widget build(BuildContext context) {

@@ -45,7 +45,7 @@ class Restaurant extends Equatable {
         menuItems: MenuItem.menuItems
             .where((menuItem) => menuItem.restaurantId == 1)
             .toList()),
-     Restaurant(
+    Restaurant(
         id: 2,
         imageAsset: 'assets/images/victor-rutka-4FujjkcI40g-unsplash.jpg',
         name: "Juicy",
@@ -56,17 +56,31 @@ class Restaurant extends Equatable {
         menuItems: MenuItem.menuItems
             .where((menuItem) => menuItem.restaurantId == 2)
             .toList()),
-     Restaurant(
-        id: 3,
-        imageAsset:
-            'assets/images/amirali-mirhashemian-sc5sTPMrVfk-unsplash.jpg',
-        name: 'Just Loaf',
-        tags: const ["Fast Food", 'Burgers'],
-        deliveryTime: 64,
-        deliveryFee: 48,
-        distance: 9,
-        menuItems: MenuItem.menuItems
-            .where((menuItem) => menuItem.restaurantId == 3)
-            .toList())
+    Restaurant(
+      id: 3,
+      imageAsset: 'assets/images/amirali-mirhashemian-sc5sTPMrVfk-unsplash.jpg',
+      name: 'Just Loaf',
+      tags: const ["Fast Food", 'Burgers'],
+      deliveryTime: 64,
+      deliveryFee: 48,
+      distance: 9,
+      menuItems: MenuItem.menuItems
+          .where((menuItem) => menuItem.restaurantId == 3)
+          .toList(),
+    ),
+    Restaurant(
+      id: 4,
+      imageAsset: '',
+      name: 'Pizza Riccotta',
+      tags: const [
+        'Pizza',
+      ],
+      deliveryTime: 50,
+      deliveryFee: 49,
+      distance: 10.4,
+      menuItems: MenuItem.menuItems
+          .where((menuItem) => menuItem.restaurantId == 4)
+          .toList(),
+    )
   ];
 }

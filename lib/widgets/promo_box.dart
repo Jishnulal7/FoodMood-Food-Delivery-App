@@ -30,7 +30,7 @@ class PromoBox extends StatelessWidget {
           clipper: PromoClipper(),
           child: Container(
             margin: const EdgeInsets.all(5),
-            width: MediaQuery.of(context).size.width - 55,
+            width: MediaQuery.of(context).size.width - 50,
             decoration: BoxDecoration(
               color: Theme.of(context).primaryColor,
             ),

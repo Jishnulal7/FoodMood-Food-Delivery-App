@@ -2,7 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:food_delivery/models/category_model.dart';
 import 'package:food_delivery/models/restaurant_model.dart';
-import 'package:food_delivery/screens/account_screen.dart';
+import 'package:food_delivery/screens/profile/account_screen.dart';
+
 import 'package:food_delivery/widgets/food_category_box.dart';
 import 'package:food_delivery/widgets/promo_box.dart';
 import 'package:food_delivery/widgets/restuarant_card.dart';
@@ -56,16 +57,21 @@ class HomeScreen extends StatelessWidget {
         ),
         actions: [
           Padding(
-            padding: EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(8.0),
             child: InkWell(
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return const AccountScreen();
-                }));
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return const AccountScreen();
+                    },
+                  ),
+                );
               },
-              child: Icon(
+              child: const Icon(
                 Icons.account_circle,
-                size: 40,
+                size: 35,
               ),
             ),
           ),

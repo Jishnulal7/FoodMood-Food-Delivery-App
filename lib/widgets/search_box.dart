@@ -18,7 +18,7 @@ class SearchBox extends StatelessWidget {
                 color: Theme.of(context).primaryColor,
               ),
               contentPadding: const EdgeInsets.only(
-                left: 5,
+                left: 10,
                 bottom: 5,
                 top: 14,
               ),

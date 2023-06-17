@@ -1,6 +1,7 @@
-
 import 'package:flutter/material.dart';
 import 'package:food_delivery/models/category_model.dart';
+import 'package:food_delivery/models/restaurant_model.dart';
+import 'package:food_delivery/screens/restaurant_listing_screen.dart';
 
 class FoodCategoryBox extends StatelessWidget {
   final FoodCategory category;
@@ -11,6 +12,10 @@ class FoodCategoryBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final List<Restaurant> restaurants = Restaurant.restaurants
+        .where((restaurant) => restaurant.tags.contains(category.name))
+        .toList();
+
     return Container(
       width: 100,
       margin: const EdgeInsets.only(
@@ -18,10 +23,24 @@ class FoodCategoryBox extends StatelessWidget {
       ),
       child: Stack(
         children: [
-          SizedBox(
-            height: 144,
-            width: 136,
-            child: category.image,
+          InkWell(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    return RestaurantListingScreen(
+                      restaurants: restaurants,
+                    );
+                  },
+                ),
+              );
+            },
+            child: SizedBox(
+              height: 144,
+              width: 136,
+              child: category.image,
+            ),
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),

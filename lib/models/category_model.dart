@@ -22,7 +22,7 @@ class FoodCategory extends Equatable {
   static List<FoodCategory> foodCategories = [
     FoodCategory(
       id: 1,
-      name: 'Snacks',
+      name: 'Arabian',
       image: Image.asset(
         'assets/images/snack.png',
       ),
@@ -57,28 +57,28 @@ class FoodCategory extends Equatable {
     ),
     FoodCategory(
       id: 6,
-      name: 'Desserts',
+      name: 'Deserts',
       image: Image.asset(
         'assets/images/deserts.png',
       ),
     ),
     FoodCategory(
       id: 7,
-      name: 'Sweets',
+      name: 'Drinks',
       image: Image.asset(
         'assets/images/sweets.png',
       ),
     ),
     FoodCategory(
       id: 8,
-      name: 'North Indian',
+      name: 'Rolls',
       image: Image.asset(
         'assets/images/north-indian.png',
       ),
     ),
     FoodCategory(
       id: 9,
-      name: 'South Indian',
+      name: 'Veg',
       image: Image.asset(
         'assets/images/south-indian.png',
       ),

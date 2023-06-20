@@ -8,14 +8,13 @@ class MenuItem extends Equatable {
   final double price;
   final String category;
 
-  const MenuItem({
-    required this.id,
-    required this.restaurantId,
-    required this.name,
-    required this.description,
-    required this.price,
-    required this.category
-  });
+  const MenuItem(
+      {required this.id,
+      required this.restaurantId,
+      required this.name,
+      required this.description,
+      required this.price,
+      required this.category});
 
   @override
   List<Object?> get props => [
@@ -24,32 +23,38 @@ class MenuItem extends Equatable {
         name,
         description,
         price,
-        category
+        category,
       ];
   static List<MenuItem> menuItems = [
     const MenuItem(
-        id: 1,
-        restaurantId: 1,
-        name: 'Pizza',
-        description: 'Classic Zinger',
-        price: 199, category: 'Pizza'),
+      id: 1,
+      restaurantId: 1,
+      name: 'Zinger Burgers',
+      description: 'Classic Zinger',
+      price: 199,
+      category: 'Burgers',
+    ),
     const MenuItem(
-        id: 1,
-        restaurantId: 1,
-        name: 'Chicken & Fries Bucket',
-        description: 'Crowd-favorite combo Chicken and Medium fries',
-        price: 299, category: ''),
+      id: 1,
+      restaurantId: 1,
+      name: 'Chicken & Fries Bucket',
+      description: 'Crowd-favorite combo Chicken and Medium fries',
+      price: 299,
+      category: 'Fast Food',
+    ),
     const MenuItem(
         id: 1,
         restaurantId: 1,
         name: 'Buddy Meal',
         description: '2 Classic Chicken Zingers & Medium Popcorn',
-        price: 530, category: ''),
+        price: 530,
+        category: 'Fast Food'),
     const MenuItem(
         id: 1,
         restaurantId: 1,
         name: 'Pepsi',
         description: 'Cold BEverage',
-        price: 50, category: '')
+        price: 50,
+        category: 'Drinks')
   ];
 }

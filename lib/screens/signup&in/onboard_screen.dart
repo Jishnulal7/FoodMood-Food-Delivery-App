@@ -1,7 +1,7 @@
 // ignore_for_file: library_private_types_in_public_api
 
 import 'package:flutter/material.dart';
-import 'package:food_delivery/screens/signup&in/signup_screen.dart';
+import 'package:food_delivery/screens/signup&in/main_login_screen.dart';
 import '../../models/onboard_content_model.dart';
 
 class OnBoardScreen extends StatefulWidget {
@@ -125,7 +125,7 @@ class _OnBoardScreenState extends State<OnBoardScreen> {
                       Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const SignUpScreen(),
+                          builder: (context) => const MainLoginScreen(),
                         ),
                       );
                     }

@@ -6,13 +6,18 @@ import 'package:food_delivery/screens/profile/account_screen.dart';
 
 import 'package:food_delivery/widgets/food_category_box.dart';
 import 'package:food_delivery/widgets/promo_box.dart';
-import 'package:food_delivery/widgets/restuarant_card.dart';
+import 'package:food_delivery/widgets/restaurant_card.dart';
 import '../models/promo_model.dart';
 import '../widgets/search_box.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -147,6 +152,7 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
               ListView.builder(
+                physics: const NeverScrollableScrollPhysics(),
                 scrollDirection: Axis.vertical,
                 itemCount: 3,
                 shrinkWrap: true,

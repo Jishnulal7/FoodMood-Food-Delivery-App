@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivery/screens/logout_screen.dart';
 import 'package:food_delivery/screens/signup&in/splash_screen.dart';
 import 'package:food_delivery/utils/themes.dart';
 
@@ -15,11 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: theme(),
-      // routes: {
-
-      // },
       home: const SplashScreen(),
-      // home: const LogoutScreen(),
     );
   }
 }

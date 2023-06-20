@@ -17,13 +17,32 @@ class _AccountScreenState extends State<AccountScreen> {
     'Transactions',
     'Help & Support',
     'Feedback'
+    'Logout'
   ];
   final List<Icon> icons = [
-    const Icon(Icons.history),
-    const Icon(Icons.fire_truck),
-    const Icon(Icons.card_giftcard),
-    const Icon(Icons.help_center),
-    const Icon(Icons.feedback)
+    const Icon(
+      Icons.history,
+      color: Colors.black,
+    ),
+    const Icon(
+      Icons.fire_truck,
+      color: Colors.black,
+    ),
+    const Icon(
+      Icons.card_giftcard,
+      color: Colors.black,
+    ),
+    const Icon(
+      Icons.help_center,
+      color: Colors.black,
+    ),
+    const Icon(
+      Icons.feedback,
+      color: Colors.black,
+    ), const Icon(
+      Icons.logout_outlined,
+      color: Colors.black,
+    )
   ];
   @override
   Widget build(BuildContext context) {
@@ -67,7 +86,7 @@ class _AccountScreenState extends State<AccountScreen> {
                                   .labelSmall
                                   ?.copyWith(fontSize: 24),
                             ),
-                            const SizedBox(
+                            const SizedBox( 
                               height: 7,
                             ),
                             Text(
@@ -126,15 +145,11 @@ class _AccountScreenState extends State<AccountScreen> {
                       ),
                       const Padding(
                         padding: EdgeInsets.all(8.0),
-                        child: Column(
-                          children: [
-                            CircleAvatar(
-                              radius: 50,
-                              backgroundImage: AssetImage(
-                                'assets/images/michael-dam-mEZ3PoFGs_k-unsplash.jpg',
-                              ),
-                            ),
-                          ],
+                        child: CircleAvatar(
+                          radius: 50,
+                          backgroundImage: AssetImage(
+                            'assets/images/michael-dam-mEZ3PoFGs_k-unsplash.jpg',
+                          ),
                         ),
                       ),
                     ],
@@ -161,7 +176,7 @@ class _AccountScreenState extends State<AccountScreen> {
                   padding: const EdgeInsets.all(10.0),
                   child: Card(
                     child: InkWell(
-                      onTap: (){},
+                      onTap: () {},
                       child: ListTile(
                         title: Text(
                           text[index],

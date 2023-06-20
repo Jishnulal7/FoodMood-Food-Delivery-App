@@ -64,14 +64,15 @@ class _SignInScreenState extends State<SignInScreen> {
               padding: const EdgeInsets.symmetric(horizontal: 24),
               child: TextFormField(
                 controller: _emailController,
-                decoration:  InputDecoration(
+                decoration: InputDecoration(
                   border: InputBorder.none,
                   filled: true,
                   fillColor: const Color(0xFFF5F5F5),
                   contentPadding: const EdgeInsets.all(20),
                   hintText: 'Email',
                   prefixIcon: Icon(
-                    CupertinoIcons.mail,color: Theme.of(context).primaryColor,
+                    CupertinoIcons.mail,
+                    color: Theme.of(context).primaryColor,
                   ),
                 ),
               ),
@@ -84,17 +85,19 @@ class _SignInScreenState extends State<SignInScreen> {
               child: TextFormField(
                 controller: _passwordController,
                 obscureText: true,
-                decoration:  InputDecoration(
+                decoration: InputDecoration(
                   border: InputBorder.none,
                   filled: true,
                   fillColor: const Color(0xFFF5F5F5),
                   contentPadding: const EdgeInsets.all(20),
                   hintText: 'Password',
-                  suffixIcon:  Icon(
-                    CupertinoIcons.eye_slash_fill,color: Theme.of(context).primaryColor,
+                  suffixIcon: Icon(
+                    CupertinoIcons.eye_slash_fill,
+                    color: Theme.of(context).primaryColor,
                   ),
                   prefixIcon: Icon(
-                    CupertinoIcons.lock,color: Theme.of(context).primaryColor,
+                    CupertinoIcons.lock,
+                    color: Theme.of(context).primaryColor,
                   ),
                 ),
               ),
@@ -104,10 +107,14 @@ class _SignInScreenState extends State<SignInScreen> {
             ),
             GestureDetector(
               onTap: () {
-                Navigator.pushReplacement(context,
-                    MaterialPageRoute(builder: (context) {
-                  return const ForgotPasswordScreen();
-                }));
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return const ForgotPasswordScreen();
+                    },
+                  ),
+                );
               },
               child: Align(
                 alignment: Alignment.topRight,
@@ -131,7 +138,7 @@ class _SignInScreenState extends State<SignInScreen> {
               style: ElevatedButton.styleFrom(
                 minimumSize: const Size(
                   335,
-                  50,
+                  52,
                 ),
               ),
               onPressed: () {

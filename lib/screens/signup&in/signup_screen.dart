@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:food_delivery/screens/home_screen.dart';
+import 'package:food_delivery/screens/signup&in/privacy_policy_screen.dart';
 import 'package:food_delivery/screens/signup&in/signin_screen.dart';
+import 'package:food_delivery/screens/signup&in/terms_condition_screen.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -64,14 +66,15 @@ class _SignUpScreenState extends State<SignUpScreen> {
               child: TextFormField(
                 keyboardType: TextInputType.name,
                 controller: _nameController,
-                decoration:  InputDecoration(
+                decoration: InputDecoration(
                   border: InputBorder.none,
                   filled: true,
                   fillColor: const Color(0xFFF5F5F5),
                   contentPadding: const EdgeInsets.all(20),
                   hintText: 'Name',
                   prefixIcon: Icon(
-                    CupertinoIcons.person_circle,color: Theme.of(context).primaryColor,
+                    CupertinoIcons.person_circle,
+                    color: Theme.of(context).primaryColor,
                   ),
                 ),
               ),
@@ -83,14 +86,15 @@ class _SignUpScreenState extends State<SignUpScreen> {
               padding: const EdgeInsets.symmetric(horizontal: 24),
               child: TextFormField(
                 controller: _emailController,
-                decoration:  InputDecoration(
+                decoration: InputDecoration(
                   border: InputBorder.none,
                   filled: true,
                   fillColor: const Color(0xFFF5F5F5),
                   contentPadding: const EdgeInsets.all(20),
                   hintText: 'Email',
                   prefixIcon: Icon(
-                    CupertinoIcons.mail,color: Theme.of(context).primaryColor,
+                    CupertinoIcons.mail,
+                    color: Theme.of(context).primaryColor,
                   ),
                 ),
               ),
@@ -103,14 +107,15 @@ class _SignUpScreenState extends State<SignUpScreen> {
               child: TextFormField(
                 keyboardType: TextInputType.phone,
                 controller: _phoneController,
-                decoration:  InputDecoration(
+                decoration: InputDecoration(
                   border: InputBorder.none,
                   filled: true,
                   fillColor: const Color(0xFFF5F5F5),
                   contentPadding: const EdgeInsets.all(20),
                   hintText: 'Mobile Number',
                   prefixIcon: Icon(
-                    CupertinoIcons.phone,color: Theme.of(context).primaryColor,
+                    CupertinoIcons.phone,
+                    color: Theme.of(context).primaryColor,
                   ),
                 ),
               ),
@@ -123,17 +128,19 @@ class _SignUpScreenState extends State<SignUpScreen> {
               child: TextFormField(
                 controller: _passwordController,
                 obscureText: true,
-                decoration:  InputDecoration(
+                decoration: InputDecoration(
                   border: InputBorder.none,
                   filled: true,
                   fillColor: const Color(0xFFF5F5F5),
                   contentPadding: const EdgeInsets.all(20),
                   hintText: 'Password',
                   suffixIcon: Icon(
-                    CupertinoIcons.eye_slash_fill,color: Theme.of(context).primaryColor,
+                    CupertinoIcons.eye_slash_fill,
+                    color: Theme.of(context).primaryColor,
                   ),
                   prefixIcon: Icon(
-                    CupertinoIcons.lock,color: Theme.of(context).primaryColor,
+                    CupertinoIcons.lock,
+                    color: Theme.of(context).primaryColor,
                   ),
                 ),
               ),
@@ -144,8 +151,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
             ElevatedButton(
               style: ElevatedButton.styleFrom(
                 minimumSize: const Size(
-                  335,
-                  50,
+                  330,
+                  54,
                 ),
               ),
               onPressed: () {
@@ -184,10 +191,22 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   const SizedBox(
                     width: 3,
                   ),
-                  Text(
-                    'Terms&conditions',
-                    style: TextStyle(
-                      color: Theme.of(context).primaryColor,
+                  InkWell(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return const TermsAndConditionScreen();
+                          },
+                        ),
+                      );
+                    },
+                    child: Text(
+                      'Terms&conditions',
+                      style: TextStyle(
+                        color: Theme.of(context).primaryColor,
+                      ),
                     ),
                   ),
                   const SizedBox(
@@ -199,10 +218,22 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   const SizedBox(
                     width: 3,
                   ),
-                  Text(
-                    'Privacy policy',
-                    style: TextStyle(
-                      color: Theme.of(context).primaryColor,
+                  InkWell(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return const PrivacyAndPolicyScreen();
+                          },
+                        ),
+                      );
+                    },
+                    child: Text(
+                      'Privacy policy',
+                      style: TextStyle(
+                        color: Theme.of(context).primaryColor,
+                      ),
                     ),
                   )
                 ],
@@ -239,7 +270,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   ),
                 )
               ],
-            )
+            ),
           ],
         ),
       ),

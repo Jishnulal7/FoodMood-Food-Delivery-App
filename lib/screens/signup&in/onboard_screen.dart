@@ -1,7 +1,8 @@
 // ignore_for_file: library_private_types_in_public_api
 
 import 'package:flutter/material.dart';
-import 'package:food_delivery/screens/signup&in/main_login_screen.dart';
+// import 'package:food_delivery/screens/signup&in/main_login_screen.dart';
+import 'package:food_delivery/screens/signup&in/user/signup_screen.dart';
 import '../../models/onboard_content_model.dart';
 
 class OnBoardScreen extends StatefulWidget {
@@ -31,115 +32,116 @@ class _OnBoardScreenState extends State<OnBoardScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: Column(
-          children: [
-            Container(
-              padding: const EdgeInsets.all(20),
-              alignment: Alignment.topRight,
-              child: TextButton(
-                child: Visibility(
-                  visible: currentIndex != contents.length - 1,
-                  child: Text(
-                    'Skip',
-                    style: TextStyle(
-                      color: Theme.of(context).primaryColor,
-                    ),
+    return Scaffold(
+      body: Column(
+        children: [
+          const SizedBox(
+            height: 30,
+          ),
+          Container(
+            padding: const EdgeInsets.all(20),
+            alignment: Alignment.topRight,
+            child: TextButton(
+              child: Visibility(
+                visible: currentIndex != contents.length - 1,
+                child: Text(
+                  'Skip',
+                  style: TextStyle(
+                    color: Theme.of(context).primaryColor,
                   ),
+                ),
+              ),
+              onPressed: () {
+                _pageController.animateToPage(
+                  contents.length - 1,
+                  duration: const Duration(milliseconds: 500),
+                  curve: Curves.ease,
+                );
+              },
+            ),
+          ),
+          Expanded(
+            child: PageView.builder(
+              controller: _pageController,
+              onPageChanged: (int index) {
+                setState(() {
+                  currentIndex = index;
+                });
+              },
+              itemCount: contents.length,
+              itemBuilder: (_, index) => Padding(
+                padding: const EdgeInsets.all(40.0),
+                child: Column(
+                  children: [
+                    Image.asset(
+                      contents[index].image,
+                    ),
+                    const SizedBox(
+                      height: 55,
+                    ),
+                    Text(
+                      contents[index].title,
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        wordSpacing: 2,
+                        color: Theme.of(context).primaryColor,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 24,
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 75,
+                    ),
+                    Text(
+                      contents[index].desc,
+                      style: const TextStyle(
+                        wordSpacing: 1,
+                        fontWeight: FontWeight.normal,
+                        fontSize: 16,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: List.generate(
+              contents.length,
+              (index) => buildDot(index, context),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(40.0),
+            child: Container(
+              height: 55,
+              width: double.infinity,
+              color: Theme.of(context).primaryColor,
+              child: ElevatedButton(
+                child: Text(
+                  currentIndex == contents.length - 1 ? 'Get Moody' : 'Next',
                 ),
                 onPressed: () {
-                  _pageController.animateToPage(
-                    contents.length - 1,
-                    duration: const Duration(milliseconds: 500),
-                    curve: Curves.ease,
-                  );
+                  if (currentIndex == contents.length - 1) {
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const SignUpScreen(),
+                      ),
+                    );
+                  }
+                  _pageController.nextPage(
+                      duration: const Duration(
+                        milliseconds: 100,
+                      ),
+                      curve: Curves.bounceIn);
                 },
               ),
             ),
-            Expanded(
-              child: PageView.builder(
-                controller: _pageController,
-                onPageChanged: (int index) {
-                  setState(() {
-                    currentIndex = index;
-                  });
-                },
-                itemCount: contents.length,
-                itemBuilder: (_, index) => Padding(
-                  padding: const EdgeInsets.all(40.0),
-                  child: Column(
-                    children: [
-                      Image.asset(
-                        contents[index].image,
-                      ),
-                      const SizedBox(
-                        height: 55,
-                      ),
-                      Text(
-                        contents[index].title,
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          wordSpacing: 2,
-                          color: Theme.of(context).primaryColor,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 24,
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 75,
-                      ),
-                      Text(
-                        contents[index].desc,
-                        style: const TextStyle(
-                          wordSpacing: 1,
-                          fontWeight: FontWeight.normal,
-                          fontSize: 16,
-                        ),
-                        textAlign: TextAlign.center,
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: List.generate(
-                contents.length,
-                (index) => buildDot(index, context),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(40.0),
-              child: Container(
-                height: 55,
-                width: double.infinity,
-                color: Theme.of(context).primaryColor,
-                child: ElevatedButton(
-                  child: Text(
-                    currentIndex == contents.length - 1 ? 'Get Moody' : 'Next',
-                  ),
-                  onPressed: () {
-                    if (currentIndex == contents.length - 1) {
-                      Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const MainLoginScreen(),
-                        ),
-                      );
-                    }
-                    _pageController.nextPage(
-                        duration: const Duration(
-                          milliseconds: 100,
-                        ),
-                        curve: Curves.bounceIn);
-                  },
-                ),
-              ),
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

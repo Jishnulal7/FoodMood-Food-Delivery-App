@@ -1,9 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:food_delivery/screens/signup&in/forgot_password_screen.dart';
-import 'package:food_delivery/screens/signup&in/signup_screen.dart';
-
-import '../home_screen.dart';
+import 'package:food_delivery/screens/home_screen.dart';
+import 'package:food_delivery/screens/signup&in/user/forgot_password_screen.dart';
+import 'package:food_delivery/screens/signup&in/user/signup_screen.dart';
 
 class SignInScreen extends StatefulWidget {
   const SignInScreen({super.key});
@@ -13,33 +12,55 @@ class SignInScreen extends StatefulWidget {
 }
 
 class _SignInScreenState extends State<SignInScreen> {
+  
+  bool obscureText = true;
+
+  void checkLogin() {
+    if (formKey.currentState!.validate()) {
+      formKey.currentState?.save();
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (context) {
+            return const HomeScreen();
+          },
+        ),
+      );
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Please enter Login details'),
+        ),
+      );
+    }
+  }
+
+  // @override
+  // void initState() {
+  //   obscureText = true;
+  //   super.initState();
+  // }
+
+  @override
+  void dispose() {
+    _emailController.dispose();
+    _passwordController.dispose();
+    super.dispose();
+  }
+
+  final formKey = GlobalKey<FormState>();
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        resizeToAvoidBottomInset: false,
-        body: Column(
+    return Scaffold(
+      appBar: AppBar(),
+      resizeToAvoidBottomInset: false,
+      body: Form(
+        key: formKey,
+        child: Column(
           children: [
-            Padding(
-              padding: const EdgeInsets.only(
-                top: 44,
-                left: 24,
-              ),
-              child: Align(
-                alignment: Alignment.topLeft,
-                child: IconButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  icon: const Icon(
-                    Icons.arrow_back_ios_new,
-                  ),
-                ),
-              ),
-            ),
             const SizedBox(
               height: 80,
             ),
@@ -63,6 +84,12 @@ class _SignInScreenState extends State<SignInScreen> {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 24),
               child: TextFormField(
+                validator: (value) {
+                  if (value!.isEmpty) {
+                    return 'Enter your email';
+                  }
+                  return null;
+                },
                 controller: _emailController,
                 decoration: InputDecoration(
                   border: InputBorder.none,
@@ -83,17 +110,38 @@ class _SignInScreenState extends State<SignInScreen> {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 24),
               child: TextFormField(
+                validator: (value) {
+                  if (value!.isEmpty) {
+                    return 'Enter a valid password!';
+                  }
+                  if (value.length < 8) {
+                    return 'Password must be at least 8 characters long.';
+                  }
+                  if (!value.contains(RegExp(r'[A-Z]'))) {
+                    return 'Password must contain at least one uppercase letter.';
+                  }
+                  return null;
+                },
                 controller: _passwordController,
-                obscureText: true,
+                obscureText: obscureText,
                 decoration: InputDecoration(
                   border: InputBorder.none,
                   filled: true,
                   fillColor: const Color(0xFFF5F5F5),
                   contentPadding: const EdgeInsets.all(20),
                   hintText: 'Password',
-                  suffixIcon: Icon(
-                    CupertinoIcons.eye_slash_fill,
-                    color: Theme.of(context).primaryColor,
+                  suffixIcon: GestureDetector(
+                    onTap: () {
+                      setState(
+                        () {
+                          obscureText = !obscureText;
+                        },
+                      );
+                    },
+                    child: Icon(
+                      obscureText ? Icons.visibility : Icons.visibility_off,
+                      color: Theme.of(context).primaryColor,
+                    ),
                   ),
                   prefixIcon: Icon(
                     CupertinoIcons.lock,
@@ -141,12 +189,7 @@ class _SignInScreenState extends State<SignInScreen> {
                   52,
                 ),
               ),
-              onPressed: () {
-                Navigator.pushReplacement(context,
-                    MaterialPageRoute(builder: (context) {
-                  return const HomeScreen();
-                }));
-              },
+              onPressed: checkLogin,
               child: const Text(
                 'Sign In',
                 style: TextStyle(
@@ -169,10 +212,14 @@ class _SignInScreenState extends State<SignInScreen> {
                 ),
                 InkWell(
                   onTap: () {
-                    Navigator.pushReplacement(context,
-                        MaterialPageRoute(builder: (context) {
-                      return const SignUpScreen();
-                    }));
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return const SignUpScreen();
+                        },
+                      ),
+                    );
                   },
                   child: Text(
                     ' Sign in',

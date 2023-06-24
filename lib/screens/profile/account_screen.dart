@@ -16,7 +16,7 @@ class _AccountScreenState extends State<AccountScreen> {
     'Track Order',
     'Transactions',
     'Help & Support',
-    'Feedback'
+    'Feedback',
     'Logout'
   ];
   final List<Icon> icons = [
@@ -39,7 +39,8 @@ class _AccountScreenState extends State<AccountScreen> {
     const Icon(
       Icons.feedback,
       color: Colors.black,
-    ), const Icon(
+    ),
+    const Icon(
       Icons.logout_outlined,
       color: Colors.black,
     )
@@ -86,7 +87,7 @@ class _AccountScreenState extends State<AccountScreen> {
                                   .labelSmall
                                   ?.copyWith(fontSize: 24),
                             ),
-                            const SizedBox( 
+                            const SizedBox(
                               height: 7,
                             ),
                             Text(
@@ -111,7 +112,8 @@ class _AccountScreenState extends State<AccountScreen> {
                             ),
                             SizedBox(
                               child: Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(
                                     'View Activity',

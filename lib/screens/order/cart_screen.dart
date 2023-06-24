@@ -76,7 +76,7 @@ class CartScreen extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
                             const Icon(
-                              Icons.add,
+                              Icons.remove,
                               color: Colors.white,
                             ),
                             Text(
@@ -264,15 +264,15 @@ class CartScreen extends StatelessWidget {
                       ),
                       child: InkWell(
                         onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) {
-                                  return const AddressScreen();
-                                },
-                              ),
-                            );
-                          },
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) {
+                                return const AddressScreen();
+                              },
+                            ),
+                          );
+                        },
                         child: Center(
                           child: Text(
                             'Checkout',

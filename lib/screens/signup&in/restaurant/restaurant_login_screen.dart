@@ -1,15 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivery/screens/signup&in/restaurant/restaurant_login_screen.dart';
-import 'package:food_delivery/screens/signup&in/user/signup_screen.dart';
 
-
-class MainLoginScreen extends StatelessWidget {
-  const MainLoginScreen({super.key});
+class RestaurantLoginScreen extends StatelessWidget {
+  const RestaurantLoginScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: false,
+      appBar: AppBar(),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -31,7 +28,7 @@ class MainLoginScreen extends StatelessWidget {
                   ),
                 );
               },
-              child: const Text('Restaurant Login'),
+              child: const Text('Add Restaurant'),
             ),
             const SizedBox(
               height: 60,
@@ -48,12 +45,12 @@ class MainLoginScreen extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                     builder: (context) {
-                      return const SignUpScreen();
+                      return const RestaurantLoginScreen();
                     },
                   ),
                 );
               },
-              child: const Text('User Login'),
+              child: const Text('Restaurant Login'),
             ),
           ],
         ),

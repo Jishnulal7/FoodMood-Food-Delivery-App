@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivery/screens/signup&in/splash_screen.dart';
+import 'package:food_delivery/screens/signup&in/user/splash_screen.dart';
 import 'package:food_delivery/utils/themes.dart';
 
 void main() {

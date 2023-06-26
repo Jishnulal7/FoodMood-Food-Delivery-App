@@ -86,28 +86,30 @@ class _AccountScreenState extends State<AccountScreen> {
                             ),
                             SizedBox(
                               child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
+                                // mainAxisAlignment:MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(
                                     'Edit Profile',
                                     style:
                                         Theme.of(context).textTheme.labelMedium,
                                   ),
-                                  IconButton(
-                                    onPressed: () {
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                          builder: (context) {
-                                            return const EditProfile();
-                                          },
-                                        ),
-                                      );
-                                    },
-                                    icon: const Icon(
-                                      Icons.edit_note,
-                                      color: Colors.white,
+                                  Align(
+                                    alignment: Alignment.bottomRight,
+                                    child: IconButton(
+                                      onPressed: () {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) {
+                                              return const EditProfile();
+                                            },
+                                          ),
+                                        );
+                                      },
+                                      icon: const Icon(
+                                        Icons.edit_note,
+                                        color: Colors.white,
+                                      ),
                                     ),
                                   )
                                 ],
@@ -119,12 +121,15 @@ class _AccountScreenState extends State<AccountScreen> {
                       const SizedBox(
                         width: 10,
                       ),
-                      const Padding(
-                        padding: EdgeInsets.all(8.0),
-                        child: CircleAvatar(
-                          radius: 50,
-                          backgroundImage: AssetImage(
-                            'assets/images/michael-dam-mEZ3PoFGs_k-unsplash.jpg',
+                      const Align(
+                        alignment: Alignment.topCenter,
+                        child: Padding(
+                          padding: EdgeInsets.all(8.0),
+                          child: CircleAvatar(
+                            radius: 50,
+                            backgroundImage: AssetImage(
+                              'assets/images/michael-dam-mEZ3PoFGs_k-unsplash.jpg',
+                            ),
                           ),
                         ),
                       ),

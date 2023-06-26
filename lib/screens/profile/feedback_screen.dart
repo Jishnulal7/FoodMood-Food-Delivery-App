@@ -74,7 +74,7 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
                   _suggestions = value;
                 });
               },
-              maxLines: 4,
+              maxLines: 5,
               decoration: const InputDecoration(
                 hintText: 'Enter your suggestions here',
                 border: OutlineInputBorder(),

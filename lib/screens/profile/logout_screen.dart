@@ -1,7 +1,36 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery/screens/profile/account_screen.dart';
+import 'package:food_delivery/screens/signup&in/user/signin_screen.dart';
 
-class LogoutScreen extends StatelessWidget {
+class LogoutScreen extends StatefulWidget {
   const LogoutScreen({super.key});
+
+  @override
+  State<LogoutScreen> createState() => _LogoutScreenState();
+}
+
+class _LogoutScreenState extends State<LogoutScreen> {
+  onTap() {
+     Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (contex) {
+          return const SignInScreen();
+        },
+      ),
+    );
+  }
+
+  onPress() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (contex) {
+          return const AccountScreen();
+        },
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -33,24 +62,25 @@ class LogoutScreen extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 25),
-              child: Container(
-                width: 380,
-                height: 48,
-                decoration: const BoxDecoration(
-                  border: Border(
-                    bottom: BorderSide(color: Color(0xffD9D9D9)),
-                    top: BorderSide(color: Color(0xffD9D9D9)),
-                    right: BorderSide(color: Color(0xffD9D9D9)),
-                    left: BorderSide(color: Color(0xffD9D9D9)),
+              child: InkWell(
+                onTap: onTap,
+                child: Container(
+                  width: 380,
+                  height: 48,
+                  decoration: const BoxDecoration(
+                    border: Border(
+                      bottom: BorderSide(color: Color(0xffD9D9D9)),
+                      top: BorderSide(color: Color(0xffD9D9D9)),
+                      right: BorderSide(color: Color(0xffD9D9D9)),
+                      left: BorderSide(color: Color(0xffD9D9D9)),
+                    ),
                   ),
-                ),
-                child: Center(
-                  child: Text(
-                    'Yes, Log me out',
-                    style: Theme.of(context)
-                        .textTheme
-                        .displaySmall!
-                        .copyWith(fontSize: 16, fontWeight: FontWeight.normal),
+                  child: Center(
+                    child: Text(
+                      'Yes, Log me out',
+                      style: Theme.of(context).textTheme.displaySmall!.copyWith(
+                          fontSize: 16, fontWeight: FontWeight.normal),
+                    ),
                   ),
                 ),
               ),
@@ -60,18 +90,21 @@ class LogoutScreen extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 25),
-              child: Container(
-                width: 380,
-                height: 48,
-                decoration: BoxDecoration(
-                  color: Theme.of(context).primaryColor,
-                ),
-                child: Center(
-                  child: Text(
-                    'Nah! Just kidding',
-                    style: Theme.of(context).textTheme.labelMedium!.copyWith(
-                          fontWeight: FontWeight.normal,
-                        ),
+              child: InkWell(
+                onTap: onPress,
+                child: Container(
+                  width: 380,
+                  height: 48,
+                  decoration: BoxDecoration(
+                    color: Theme.of(context).primaryColor,
+                  ),
+                  child: Center(
+                    child: Text(
+                      'Nah! Just kidding',
+                      style: Theme.of(context).textTheme.labelMedium!.copyWith(
+                            fontWeight: FontWeight.normal,
+                          ),
+                    ),
                   ),
                 ),
               ),

@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:food_delivery/models/category_model.dart';
+
 import 'package:food_delivery/models/restaurant_model.dart';
 import 'package:food_delivery/screens/profile/account_screen.dart';
 
@@ -11,7 +12,9 @@ import '../models/promo_model.dart';
 import '../widgets/search_box.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+  const HomeScreen({
+    super.key,
+  });
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();

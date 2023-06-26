@@ -19,12 +19,16 @@ class RestaurantDetailsScreen extends StatelessWidget {
       ),
       bottomNavigationBar: BottomAppBar(
         child: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(10.0),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
+                  minimumSize: const Size(
+                    300,
+                    40,
+                  ),
                   shape: const RoundedRectangleBorder(),
                 ),
                 onPressed: () {
@@ -43,6 +47,7 @@ class RestaurantDetailsScreen extends StatelessWidget {
           ),
         ),
       ),
+      backgroundColor: const Color.fromARGB(255, 243, 243, 243),
       extendBodyBehindAppBar: true,
       body: SingleChildScrollView(
         child: Column(

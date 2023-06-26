@@ -1,8 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery/widgets/button.dart';
 
-class EditProfile extends StatelessWidget {
-  const EditProfile({super.key});
+class EditProfile extends StatefulWidget {
+  const EditProfile({Key? key}) : super(key: key);
+
+  @override
+  State<EditProfile> createState() => _EditProfileState();
+}
+
+int activeFieldIndex = -1;
+bool showContainerButton = false;
+
+class _EditProfileState extends State<EditProfile> {
+  void setActiveFieldIndex(int index) {
+    setState(() {
+      activeFieldIndex = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -20,11 +34,6 @@ class EditProfile extends StatelessWidget {
             const SizedBox(
               width: 10,
             ),
-            // const Divider(
-            //   thickness: 10,
-            //   height: 1,
-            //   color: Colors.black,
-            // )
           ],
         ),
       ),
@@ -76,30 +85,33 @@ class EditProfile extends StatelessWidget {
               child: TextField(
                 keyboardType: TextInputType.name,
                 decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                      borderSide:
-                          BorderSide(color: Theme.of(context).primaryColor),
-                    ),
-                    label: Text(
-                      'Name',
+                  border: OutlineInputBorder(
+                    borderSide:
+                        BorderSide(color: Theme.of(context).primaryColor),
+                  ),
+                  label: Text(
+                    'Name',
+                    style: Theme.of(context)
+                        .textTheme
+                        .bodySmall
+                        ?.copyWith(fontSize: 16),
+                  ),
+                  suffixIcon: TextButton(
+                    child: Text(
+                      'Edit',
                       style: Theme.of(context)
                           .textTheme
-                          .bodySmall
-                          ?.copyWith(fontSize: 16),
+                          .displayMedium!
+                          .copyWith(fontSize: 14),
                     ),
-                    suffixIcon: TextButton(
-                      child: Text(
-                        'Edit',
-                        style: Theme.of(context)
-                            .textTheme
-                            .displayMedium!
-                            .copyWith(fontSize: 14),
-                      ),
-                      onPressed: () {},
-                    )),
+                    onPressed: () {
+                      setActiveFieldIndex(0);
+                    },
+                  ),
+                ),
               ),
             ),
-            const ContainerButton(),
+            if (activeFieldIndex == 0) const ContainerButton(),
             const SizedBox(
               height: 10,
             ),
@@ -127,12 +139,14 @@ class EditProfile extends StatelessWidget {
                           .displayMedium!
                           .copyWith(fontSize: 14),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      setActiveFieldIndex(1);
+                    },
                   ),
                 ),
               ),
             ),
-             const ContainerButton(),
+            if (activeFieldIndex == 1) const ContainerButton(),
             const SizedBox(
               height: 20,
             ),
@@ -160,12 +174,14 @@ class EditProfile extends StatelessWidget {
                           .displayMedium!
                           .copyWith(fontSize: 14),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      setActiveFieldIndex(2);
+                    },
                   ),
                 ),
               ),
             ),
-            const ContainerButton()
+            if (activeFieldIndex == 2) const ContainerButton()
           ],
         ),
       ),

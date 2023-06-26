@@ -16,6 +16,7 @@ class RestaurantListingScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Restaurants'),
       ),
+      backgroundColor: const Color.fromARGB(255, 243, 243, 243),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: ListView.builder(

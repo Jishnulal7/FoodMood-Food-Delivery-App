@@ -50,14 +50,17 @@ class PaymentScreen extends StatelessWidget {
                       ),
                       subtitle: InkWell(
                         onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) {
-                                return const PlaceOrderScreen();
-                              },
-                            ),
-                          );
+                          switch (index) {
+                            case 4:
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) {
+                                    return const PlaceOrderScreen();
+                                  },
+                                ),
+                              );
+                          }
                         },
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,

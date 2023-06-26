@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery/screens/location/location_screen.dart';
 import 'package:food_delivery/screens/order/payment_screen.dart';
 
 class AddressScreen extends StatefulWidget {
@@ -19,6 +20,9 @@ class _AddressScreenState extends State<AddressScreen> {
         padding: const EdgeInsets.symmetric(horizontal: 15),
         child: Column(
           children: [
+            const SizedBox(
+              height: 16,
+            ),
             TextField(
               decoration: InputDecoration(
                 filled: true,
@@ -48,18 +52,27 @@ class _AddressScreenState extends State<AddressScreen> {
             const SizedBox(
               height: 16,
             ),
-            ListTile(
-              title: Text(
-                'Use current location',
-                style: Theme.of(context).textTheme.displayMedium,
-              ),
-              leading: Icon(
-                Icons.gps_fixed,
-                color: Theme.of(context).primaryColor,
-              ),
-              trailing: Icon(
-                Icons.arrow_forward_ios,
-                color: Theme.of(context).primaryColor,
+            InkWell(
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(
+                  builder: (context) {
+                    return const LocationScreen();
+                  },
+                ));
+              },
+              child: ListTile(
+                title: Text(
+                  'Use Current location',
+                  style: Theme.of(context).textTheme.displayMedium,
+                ),
+                leading: Icon(
+                  Icons.gps_fixed,
+                  color: Theme.of(context).primaryColor,
+                ),
+                trailing: Icon(
+                  Icons.arrow_forward_ios,
+                  color: Theme.of(context).primaryColor,
+                ),
               ),
             ),
             const SizedBox(
@@ -85,14 +98,11 @@ class _AddressScreenState extends State<AddressScreen> {
             ),
             InkWell(
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) {
-                      return PaymentScreen();
-                    },
-                  ),
-                );
+                Navigator.push(context, MaterialPageRoute(
+                  builder: (context) {
+                    return PaymentScreen();
+                  },
+                ));
               },
               child: ListTile(
                 leading: const Icon(

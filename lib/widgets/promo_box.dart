@@ -32,8 +32,8 @@ class PromoBox extends StatelessWidget {
             margin: const EdgeInsets.all(5),
             width: MediaQuery.of(context).size.width - 50,
             decoration: BoxDecoration(
-              color: Theme.of(context).primaryColor,
-            ),
+                color: Theme.of(context).primaryColor,
+                borderRadius: BorderRadius.circular(5)),
             child: Padding(
               padding: const EdgeInsets.only(top: 10, left: 15, right: 125),
               child: Column(
@@ -56,4 +56,3 @@ class PromoBox extends StatelessWidget {
     );
   }
 }
-

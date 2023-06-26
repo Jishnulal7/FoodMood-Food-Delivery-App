@@ -6,7 +6,7 @@ ThemeData theme() {
     primaryColor: const Color(0xFFFF9D01),
     // primaryColorDark:
     // primaryColorLight:
-    scaffoldBackgroundColor: Colors.white,
+    scaffoldBackgroundColor: const Color.fromARGB(255, 243, 243, 243),
     fontFamily: GoogleFonts.lato().fontFamily,
     appBarTheme: const AppBarTheme(
       color: Colors.white,

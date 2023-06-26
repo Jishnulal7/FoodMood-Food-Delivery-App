@@ -1,6 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery/models/profile_model.dart';
 
 import 'package:food_delivery/screens/profile/edit_profile.dart';
+import 'package:food_delivery/screens/profile/feedback_screen.dart';
+import 'package:food_delivery/screens/profile/help_support_screen.dart';
+import 'package:food_delivery/screens/profile/logout_screen.dart';
+import 'package:food_delivery/screens/profile/order_history.dart';
+import 'package:food_delivery/screens/profile/trackorder_screen.dart';
+import 'package:food_delivery/screens/profile/transactions_screen.dart';
 // import 'package:flutter/cupertino.dart';
 
 class AccountScreen extends StatefulWidget {
@@ -11,43 +18,10 @@ class AccountScreen extends StatefulWidget {
 }
 
 class _AccountScreenState extends State<AccountScreen> {
-  final List<String> text = [
-    'Order History',
-    'Track Order',
-    'Transactions',
-    'Help & Support',
-    'Feedback',
-    'Logout'
-  ];
-  final List<Icon> icons = [
-    const Icon(
-      Icons.history,
-      color: Colors.black,
-    ),
-    const Icon(
-      Icons.fire_truck,
-      color: Colors.black,
-    ),
-    const Icon(
-      Icons.card_giftcard,
-      color: Colors.black,
-    ),
-    const Icon(
-      Icons.help_center,
-      color: Colors.black,
-    ),
-    const Icon(
-      Icons.feedback,
-      color: Colors.black,
-    ),
-    const Icon(
-      Icons.logout_outlined,
-      color: Colors.black,
-    )
-  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color.fromARGB(255, 243, 243, 243),
       appBar: AppBar(
         title: const Text('Profile'),
       ),
@@ -116,7 +90,7 @@ class _AccountScreenState extends State<AccountScreen> {
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(
-                                    'View Activity',
+                                    'Edit Profile',
                                     style:
                                         Theme.of(context).textTheme.labelMedium,
                                   ),
@@ -175,10 +149,80 @@ class _AccountScreenState extends State<AccountScreen> {
               shrinkWrap: true,
               itemBuilder: ((context, index) {
                 return Padding(
-                  padding: const EdgeInsets.all(10.0),
+                  padding: const EdgeInsets.all(8.0),
                   child: Card(
+                    margin: const EdgeInsets.all(10),
                     child: InkWell(
-                      onTap: () {},
+                      onTap: () {
+                        switch (index) {
+                          // Handle 'Order History' navigation
+                          case 0:
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (contex) {
+                                  return const OrderHistory();
+                                },
+                              ),
+                            );
+                            break;
+                          // Handle 'Track Order' navigation
+                          case 1:
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (contex) {
+                                  return const TrackOrder();
+                                },
+                              ),
+                            );
+                            break;
+                          // Handle 'Transactions' navigation
+                          case 2:
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (contex) {
+                                  return const Transactions();
+                                },
+                              ),
+                            );
+                            break;
+                          // Handle Help & Support' navigation
+                          case 3:
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (contex) {
+                                  return HelpAndSupportScreen();
+                                },
+                              ),
+                            );
+                            break;
+                          // Handle 'Feedback' navigation
+                          case 4:
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (contex) {
+                                  return const FeedbackScreen();
+                                },
+                              ),
+                            );
+                            break;
+                          // Handle 'Logout' navigation
+                          case 5:
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (contex) {
+                                  return const LogoutScreen();
+                                },
+                              ),
+                            );
+                            break;
+                        }
+                      },
                       child: ListTile(
                         title: Text(
                           text[index],

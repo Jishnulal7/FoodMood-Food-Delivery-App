@@ -111,7 +111,14 @@ class _EditProfileState extends State<EditProfile> {
                 ),
               ),
             ),
-            if (activeFieldIndex == 0) const ContainerButton(),
+            if (activeFieldIndex == 0)
+              const Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  OrangeButton(),
+                  WhiteButton(),
+                ],
+              ),
             const SizedBox(
               height: 10,
             ),
@@ -146,7 +153,14 @@ class _EditProfileState extends State<EditProfile> {
                 ),
               ),
             ),
-            if (activeFieldIndex == 1) const ContainerButton(),
+            if (activeFieldIndex == 1)
+              const Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  OrangeButton(),
+                  WhiteButton(),
+                ],
+              ),
             const SizedBox(
               height: 20,
             ),
@@ -181,7 +195,14 @@ class _EditProfileState extends State<EditProfile> {
                 ),
               ),
             ),
-            if (activeFieldIndex == 2) const ContainerButton()
+            if (activeFieldIndex == 2)
+              const Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  OrangeButton(),
+                  WhiteButton(),
+                ],
+              ),
           ],
         ),
       ),

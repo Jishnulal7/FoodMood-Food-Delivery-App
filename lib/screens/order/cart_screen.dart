@@ -9,85 +9,115 @@ class CartScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Cart'),
-        actions: [
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(
-              Icons.delete_outline,
-            ),
-          ),
-        ],
       ),
       body: SingleChildScrollView(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
               padding: const EdgeInsets.symmetric(
-                horizontal: 15,
+                horizontal: 30,
                 vertical: 10,
               ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+              child: Text(
+                'Items',
+                style: Theme.of(context)
+                    .textTheme
+                    .displayMedium!
+                    .copyWith(fontSize: 20),
+              ),
+            ),
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 30),
+              child: ListView.builder(
+                shrinkWrap: true,
+                itemCount: 4,
+                itemBuilder: (context, index) {
+                  return Container(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 30, vertical: 10),
+                    width: MediaQuery.of(context).size.width,
+                    margin: const EdgeInsets.only(top: 6),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(5),
+                    ),
+                    child: Row(
                       children: [
                         Text(
-                          'Loaded Pizza',
+                          '1x',
                           style: Theme.of(context)
                               .textTheme
                               .displayMedium!
-                              .copyWith(fontSize: 24),
+                              .copyWith(fontWeight: FontWeight.normal),
                         ),
                         const SizedBox(
-                          height: 42,
+                          width: 20,
                         ),
-                        Text(
-                          '₹ 175',
-                          style: Theme.of(context)
-                              .textTheme
-                              .displayLarge!
-                              .copyWith(fontSize: 36),
+                        const Expanded(
+                          child: Text(
+                            'Buddy Meal',
+                          ),
+                        ),
+                        const Text(
+                          '₹199',
+                        )
+                      ],
+                    ),
+                  );
+                },
+              ),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 30),
+              child: Container(
+                width: double.infinity,
+                height: 100,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(5),
+                  color: Colors.white,
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Image.asset(
+                      'assets/images/3672341.jpg',
+                    ),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        const Text(
+                          'Delivery in 40 minutes',
                         ),
                         const SizedBox(
                           height: 10,
                         ),
-                        Container(
-                          decoration: BoxDecoration(
-                              color: Theme.of(context).primaryColor),
-                          width: 130,
-                          height: 40,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: [
-                              const Icon(
-                                Icons.remove,
-                                color: Colors.white,
-                              ),
-                              Text(
-                                '1',
-                                style: Theme.of(context).textTheme.labelMedium,
-                              ),
-                              const Icon(
-                                Icons.add,
-                                color: Colors.white,
-                              ),
-                            ],
+                        TextButton(
+                          onPressed: () {},
+                          child:  Text(
+                            'Change',style: Theme.of(context).textTheme.displayMedium,
                           ),
                         )
                       ],
-                    ),
-                  ),
-                ],
+                    )
+                  ],
+                ),
               ),
             ),
-            const SizedBox(
-              height: 140,
+            const Padding(
+              padding: EdgeInsets.symmetric(
+                horizontal: 15,
+                vertical: 10,
+              ),
             ),
             Container(
-              height: 395,
+              height: 405,
               width: MediaQuery.of(context).size.width,
               color: Theme.of(context).primaryColor,
               child: Padding(
@@ -110,7 +140,7 @@ class CartScreen extends StatelessWidget {
                                 .copyWith(fontSize: 20),
                           ),
                           Text(
-                            '₹175',
+                            '₹199',
                             style: Theme.of(context)
                                 .textTheme
                                 .labelMedium!
@@ -200,7 +230,7 @@ class CartScreen extends StatelessWidget {
                                     fontSize: 20, fontWeight: FontWeight.bold),
                           ),
                           Text(
-                            '₹205',
+                            '₹229',
                             style: Theme.of(context)
                                 .textTheme
                                 .labelMedium!
@@ -229,11 +259,13 @@ class CartScreen extends StatelessWidget {
                         child: Center(
                           child: Text(
                             'Voucher Code',
-                            style:
-                                Theme.of(context).textTheme.labelMedium!.copyWith(
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.w900,
-                                    ),
+                            style: Theme.of(context)
+                                .textTheme
+                                .labelMedium!
+                                .copyWith(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w900,
+                                ),
                           ),
                         ),
                       ),

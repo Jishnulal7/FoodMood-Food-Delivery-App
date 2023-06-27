@@ -26,8 +26,8 @@ class RestaurantDetailsScreen extends StatelessWidget {
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   minimumSize: const Size(
-                    300,
-                    40,
+                    250,
+                    50,
                   ),
                   shape: const RoundedRectangleBorder(),
                 ),
@@ -47,7 +47,7 @@ class RestaurantDetailsScreen extends StatelessWidget {
           ),
         ),
       ),
-      backgroundColor: const Color.fromARGB(255, 243, 243, 243),
+      backgroundColor: Colors.white,
       extendBodyBehindAppBar: true,
       body: SingleChildScrollView(
         child: Column(

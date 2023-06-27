@@ -149,7 +149,7 @@ class _AccountScreenState extends State<AccountScreen> {
             const SizedBox(
               height: 16,
             ),
-            ListView.builder(
+            ListView.builder(physics: const NeverScrollableScrollPhysics(),
               itemCount: text.length,
               shrinkWrap: true,
               itemBuilder: ((context, index) {

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:food_delivery/models/category_model.dart';
 
 import 'package:food_delivery/models/restaurant_model.dart';
+import 'package:food_delivery/screens/location/location_screen.dart';
 import 'package:food_delivery/screens/profile/account_screen.dart';
 
 import 'package:food_delivery/widgets/food_category_box.dart';
@@ -21,6 +22,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  bool showAddress = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,24 +43,47 @@ class _HomeScreenState extends State<HomeScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Icon(
-                  Icons.location_on,
+                InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return const LocationScreen();
+                        },
+                      ),
+                    );
+                  },
+                  child: const Icon(
+                    Icons.location_on,
+                  ),
                 ),
                 Text(
                   'Home',
                   style: Theme.of(context).textTheme.displayLarge,
                 ),
-                const Icon(
-                  Icons.arrow_drop_down,
+                InkWell(
+                  //to hide address on Appbar
+                  onTap: () {
+                    setState(
+                      () {
+                        showAddress = !showAddress;
+                      },
+                    );
+                  },
+                  child: const Icon(
+                    Icons.arrow_drop_down,
+                  ),
                 ),
               ],
             ),
             Column(
               children: [
-                Text(
-                  'Mankada,Malappuram',
-                  style: Theme.of(context).textTheme.bodySmall,
-                )
+                if (showAddress)
+                  Text(
+                    'Mankada,Malappuram',
+                    style: Theme.of(context).textTheme.bodySmall,
+                  )
               ],
             )
           ],
@@ -157,7 +182,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ListView.builder(
                 physics: const NeverScrollableScrollPhysics(),
                 scrollDirection: Axis.vertical,
-                itemCount: 3,
+                itemCount: Restaurant.restaurants.length,
                 shrinkWrap: true,
                 itemBuilder: (context, index) {
                   return RestaurantCard(

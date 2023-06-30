@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivery/screens/order/address_screen.dart';
+import 'package:food_delivery/screens/order/order_placed_screen.dart';
 
 class PlaceOrderScreen extends StatelessWidget {
   const PlaceOrderScreen({super.key});
@@ -261,7 +261,7 @@ class PlaceOrderScreen extends StatelessWidget {
                               context,
                               MaterialPageRoute(
                                 builder: (context) {
-                                  return const AddressScreen();
+                                  return const OrderPlacedScreen();
                                 },
                               ),
                             );

@@ -27,3 +27,11 @@ class RemoveItem extends CartEvent {
   @override
   List<Object> get props => [item];
 }
+class RemoveAllItems extends CartEvent {
+  final MenuItem item;
+
+  const RemoveAllItems(this.item);
+
+  @override
+  List<Object> get props => [item];
+}

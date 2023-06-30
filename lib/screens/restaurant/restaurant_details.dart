@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:food_delivery/bloc/cart/cart_bloc.dart';
+// import 'package:food_delivery/models/menu_item_model.dart';
 import 'package:food_delivery/models/restaurant_model.dart';
 import 'package:food_delivery/screens/order/cart_screen.dart';
-import 'package:food_delivery/screens/restaurant_info.dart';
+
+import 'package:food_delivery/screens/restaurant/restaurant_info.dart';
 
 class RestaurantDetailsScreen extends StatelessWidget {
   const RestaurantDetailsScreen({
@@ -49,35 +53,38 @@ class RestaurantDetailsScreen extends StatelessWidget {
       ),
       backgroundColor: Colors.white,
       extendBodyBehindAppBar: true,
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Container(
-              height: 300,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.vertical(
-                  bottom:
-                      Radius.elliptical(MediaQuery.of(context).size.width, 70),
-                ),
-                image: DecorationImage(
-                  image: AssetImage(
-                    restaurant.imageAsset,
+      body: BlocProvider<CartBloc>(
+        create: (context) => CartBloc(),
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                height: 300,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.vertical(
+                    bottom: Radius.elliptical(
+                        MediaQuery.of(context).size.width, 70),
                   ),
-                  fit: BoxFit.cover,
+                  image: DecorationImage(
+                    image: AssetImage(
+                      restaurant.imageAsset,
+                    ),
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
-            ),
-            RestaurantInfo(restaurant: restaurant),
-            ListView.builder(
-              padding: EdgeInsets.zero,
-              shrinkWrap: true,
-              itemCount: restaurant.tags.length,
-              itemBuilder: (context, index) {
-                return _buildMenuItems(restaurant, context, index);
-              },
-            )
-          ],
+              RestaurantInfo(restaurant: restaurant),
+              ListView.builder(
+                padding: EdgeInsets.zero,
+                shrinkWrap: true,
+                itemCount: restaurant.tags.length,
+                itemBuilder: (context, index) {
+                  return _buildMenuItems(restaurant, context, index);
+                },
+              )
+            ],
+          ),
         ),
       ),
     );
@@ -122,12 +129,20 @@ Widget _buildMenuItems(Restaurant restaurant, BuildContext context, int index) {
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [
                             Text('₹${menuitems.price}'),
-                            IconButton(
-                              onPressed: () {},
-                              icon: Icon(
-                                Icons.add_circle,
-                                color: Theme.of(context).primaryColor,
-                              ),
+                            BlocBuilder<CartBloc, CartState>(
+                              builder: (context, state) {
+                                return IconButton(
+                                  onPressed: () {
+                                    context
+                                        .read<CartBloc>()
+                                        .add(AddItem(menuitems));
+                                  },
+                                  icon: Icon(
+                                    Icons.add_circle,
+                                    color: Theme.of(context).primaryColor,
+                                  ),
+                                );
+                              },
                             )
                           ],
                         ),

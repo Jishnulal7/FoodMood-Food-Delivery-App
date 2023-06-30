@@ -1,7 +1,4 @@
-// ignore_for_file: override_on_non_overriding_member
-
 import 'dart:async';
-import 'dart:ffi';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:food_delivery/models/cart_model.dart';
@@ -11,57 +8,87 @@ part 'cart_event.dart';
 part 'cart_state.dart';
 
 class CartBloc extends Bloc<CartEvent, CartState> {
-  CartBloc() : super(CartLoading());
+  CartBloc() : super(CartLoading()) {
+    on<StartCart>(_onStartCart);
+    on<AddItem>(_onAddItem);
+    on<RemoveItem>(_onRemoveItem);
+    on<RemoveAllItems>(_onRemoveAllItems);
+  }
 
+  void _onStartCart(
+    StartCart event,
+    Emitter<CartState> emit,
+  ) async {
+    print('AddItem event received');
+    emit(CartLoading());
+    try {
+      await Future<void>.delayed(const Duration(seconds: 1));
+      emit(const CartLoaded(cart: Cart()));
+      print('Cart state updated with added item');
+    } catch (_) {}
+  }
 
-  @override
-  Stream<CartState> mapEventToState(
-    CartEvent event,
-  ) async* {
-    if (event is StartCart) {
-      yield* _mapStartBasketToState();
-    } else if (event is AddItem) {
-      yield* _mapAddItemToState(event, state);
-    } else if (event is RemoveItem) {
-      yield* _mapRemoveItemToState(event, state);
+  void _onAddItem(
+    AddItem event,
+    Emitter<CartState> emit,
+  ) {
+    print('event inside addItem fun:$event');
+    final state = this.state;
+    if (state is CartLoaded) {
+      try {
+        emit(
+          CartLoaded(
+            cart: state.cart.copyWith(
+              items: List.from(state.cart.items)..add(event.item),
+            ),
+          ),
+        );
+        print('event .... addItem..... fun:${event.item}');
+        print('event .... addItem..... fun:${state.cart.items}');
+      } catch (_) {
+        print('Smthng went wrong ...above print stmnt not working');
+      }
     }
   }
-}
 
-Stream<CartState> _mapStartBasketToState() async* {
-  yield CartLoading();
-  try {
-    await Future<Void>.delayed(const Duration(seconds: 1));
-    yield const CartLoaded(cart: Cart());
-  } catch (_) {}
-}
-
-Stream<CartState> _mapAddItemToState(
-  AddItem event,
-  CartState state,
-) async* {
-  if (state is CartLoaded) {
-    try {
-      yield CartLoaded(
-        cart: state.cart.copyWith(
-          items: List.from(state.cart.items)..add(event.item),
-        ),
-      );
-    } catch (_) {}
+  void _onRemoveItem(
+    RemoveItem event,
+    Emitter<CartState> emit,
+  ) {
+    print('RemoveItem event received');
+    final state = this.state;
+    if (state is CartLoaded) {
+      try {
+        emit(
+          CartLoaded(
+            cart: state.cart.copyWith(
+              items: List.from(state.cart.items)..remove(event.item),
+            ),
+          ),
+        );
+        print('Cart state updated with removed item');
+      } catch (_) {}
+    }
   }
-}
 
-Stream<CartState> _mapRemoveItemToState(
-  RemoveItem event,
-  CartState state,
-) async* {
-  if (state is CartLoaded) {
-    try {
-      yield CartLoaded(
-        cart: state.cart.copyWith(
-          items: List.from(state.cart.items)..remove(event.item),
-        ),
-      );
-    } catch (_) {}
+  void _onRemoveAllItems(
+    RemoveAllItems event,
+    Emitter<CartState> emit,
+  ) {
+    final state = this.state;
+    // print('RemoveAllItems event received');
+    if (state is CartLoaded) {
+      try {
+        emit(
+          CartLoaded(
+            cart: state.cart.copyWith(
+              items: List.from(state.cart.items)
+                ..removeWhere((item) => item == event.item),
+            ),
+          ),
+        );
+        // print('Cart state updated with all items removed');
+      } catch (_) {}
+    }
   }
 }

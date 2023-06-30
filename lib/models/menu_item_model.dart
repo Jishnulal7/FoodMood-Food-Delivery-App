@@ -35,7 +35,7 @@ class MenuItem extends Equatable {
       category: 'Burgers',
     ),
     const MenuItem(
-      id: 1,
+      id: 2,
       restaurantId: 1,
       name: 'Chicken & Fries Bucket',
       description: 'Crowd-favorite combo Chicken and Medium fries',
@@ -43,14 +43,14 @@ class MenuItem extends Equatable {
       category: 'Fast Food',
     ),
     const MenuItem(
-        id: 1,
+        id: 3,
         restaurantId: 1,
         name: 'Buddy Meal',
         description: '2 Classic Chicken Zingers & Medium Popcorn',
         price: 530,
         category: 'Fast Food'),
     const MenuItem(
-        id: 1,
+        id: 4,
         restaurantId: 1,
         name: 'Pepsi',
         description: 'Cold BEverage',

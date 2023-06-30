@@ -1,44 +1,49 @@
 import 'package:equatable/equatable.dart';
 import 'package:food_delivery/models/menu_item_model.dart';
 
+// ignore: must_be_immutable
 class Cart extends Equatable {
   final List<MenuItem> items;
 
-  const Cart({this.items = const <MenuItem>[]});
+  const Cart({
+    this.items = const <MenuItem>[],
+  });
 
   Cart copyWith({
     List<MenuItem>? items,
   }) {
-    return Cart(items: items ?? this.items);
+    return Cart(
+      items: items ?? this.items,
+    );
   }
 
   @override
   List<Object?> get props => [items];
 
-  Map itemQuantity(item) {
-    // ignore: prefer_collection_literals
-    var quantity = Map();
-
-    // ignore: avoid_function_literals_in_foreach_calls
+  Map itemQuantity(items) {
+    var quantity = {};
+    print(items);
     items.forEach((item) {
-      if (quantity.containsKey(item)) {
+      if (!quantity.containsKey(item)) {
         quantity[item] = 1;
       } else {
         quantity[item] += 1;
       }
     });
+    print('quantity:${quantity}');
     return quantity;
   }
 
-  double get subtotal =>
-      items.fold(0, (total, current) => total + current.price);
-
-  double total(subtotal) {
-    return subtotal + 5;
+  double get subtotal {
+    print(items);
+    return items.fold(0, (total, current) => total + current.price);
   }
 
-  String get subTotalString => subtotal.toStringAsFixed(2);
+  double total(subtotal) {
+    return subtotal + 30;
+  }
 
-  // ignore: non_constant_identifier_names
-  String get TotalString => total(subtotal).toStringAsFixed(2);
+  String get subTotalString => total(subtotal).toStringAsFixed(2);
+
+  String get totalString => total(subtotal).toStringAsFixed(2);
 }

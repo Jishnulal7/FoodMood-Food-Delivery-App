@@ -111,7 +111,7 @@ class Restaurant extends Equatable {
       imageAsset:
           'assets/images/side-view-shawarma-pita-roll-with-chicken-fried-potatoes.jpg',
       name: 'Shawarma Fusion',
-      tags: const ['Drinks', 'Arabian', 'Rolls'],
+      tags: const ['Drinks', 'Rolls'],
       deliveryTime: 55,
       deliveryFee: 89,
       distance: 13.4,

@@ -19,12 +19,12 @@ class CartBloc extends Bloc<CartEvent, CartState> {
     StartCart event,
     Emitter<CartState> emit,
   ) async {
-    print('AddItem event received');
+    // print('AddItem event received');
     emit(CartLoading());
     try {
       await Future<void>.delayed(const Duration(seconds: 1));
-      emit(const CartLoaded(cart: Cart()));
-      print('Cart state updated with added item');
+      emit( const CartLoaded(cart: Cart()));
+      // print('Cart state updated with added item');
     } catch (_) {}
   }
 
@@ -32,7 +32,7 @@ class CartBloc extends Bloc<CartEvent, CartState> {
     AddItem event,
     Emitter<CartState> emit,
   ) {
-    print('event inside addItem fun:$event');
+    // print('event inside addItem fun:$event');
     final state = this.state;
     if (state is CartLoaded) {
       try {
@@ -43,10 +43,10 @@ class CartBloc extends Bloc<CartEvent, CartState> {
             ),
           ),
         );
-        print('event .... addItem..... fun:${event.item}');
-        print('event .... addItem..... fun:${state.cart.items}');
+        // print('event .... addItem..... fun:${event.item}');
+        // print('event .... addItem..... fun:${state.cart.items}');
       } catch (_) {
-        print('Smthng went wrong ...above print stmnt not working');
+        // print('Smthng went wrong ...above print stmnt not working');
       }
     }
   }
@@ -55,7 +55,7 @@ class CartBloc extends Bloc<CartEvent, CartState> {
     RemoveItem event,
     Emitter<CartState> emit,
   ) {
-    print('RemoveItem event received');
+    // print('RemoveItem event received');
     final state = this.state;
     if (state is CartLoaded) {
       try {
@@ -66,7 +66,7 @@ class CartBloc extends Bloc<CartEvent, CartState> {
             ),
           ),
         );
-        print('Cart state updated with removed item');
+        // print('Cart state updated with removed item');
       } catch (_) {}
     }
   }

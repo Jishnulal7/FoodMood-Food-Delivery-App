@@ -5,19 +5,17 @@ class FoodCategory extends Equatable {
   final int id;
   final String name;
   final Image image;
+  final String desc;
 
   const FoodCategory({
     required this.id,
     required this.name,
     required this.image,
+    required this.desc,
   });
 
   @override
-  List<Object?> get props => [
-        id,
-        name,
-        image,
-      ];
+  List<Object?> get props => [id, name, image, desc];
 
   static List<FoodCategory> foodCategories = [
     FoodCategory(
@@ -26,6 +24,7 @@ class FoodCategory extends Equatable {
       image: Image.asset(
         'assets/images/snack.png',
       ),
+      desc: 'Dish',
     ),
     FoodCategory(
       id: 2,
@@ -33,6 +32,7 @@ class FoodCategory extends Equatable {
       image: Image.asset(
         'assets/images/pizza.png',
       ),
+      desc: 'Dish',
     ),
     FoodCategory(
       id: 3,
@@ -40,6 +40,7 @@ class FoodCategory extends Equatable {
       image: Image.asset(
         'assets/images/biriyani.png',
       ),
+      desc: 'Dish',
     ),
     FoodCategory(
       id: 4,
@@ -47,6 +48,7 @@ class FoodCategory extends Equatable {
       image: Image.asset(
         'assets/images/burger.png',
       ),
+      desc: 'Dish',
     ),
     FoodCategory(
       id: 5,
@@ -54,6 +56,7 @@ class FoodCategory extends Equatable {
       image: Image.asset(
         'assets/images/chinese.png',
       ),
+      desc: 'Dish',
     ),
     FoodCategory(
       id: 6,
@@ -61,6 +64,7 @@ class FoodCategory extends Equatable {
       image: Image.asset(
         'assets/images/deserts.png',
       ),
+      desc: 'Dish',
     ),
     FoodCategory(
       id: 7,
@@ -68,6 +72,7 @@ class FoodCategory extends Equatable {
       image: Image.asset(
         'assets/images/sweets.png',
       ),
+      desc: 'Dish',
     ),
     FoodCategory(
       id: 8,
@@ -75,13 +80,14 @@ class FoodCategory extends Equatable {
       image: Image.asset(
         'assets/images/north-indian.png',
       ),
+      desc: 'Dish',
     ),
     FoodCategory(
-      id: 9,
-      name: 'Veg',
-      image: Image.asset(
-        'assets/images/south-indian.png',
-      ),
-    ),
+        id: 9,
+        name: 'Veg',
+        image: Image.asset(
+          'assets/images/south-indian.png',
+        ),
+        desc: 'Dish'),
   ];
 }

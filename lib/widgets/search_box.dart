@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery/models/category_model.dart';
+import 'package:food_delivery/widgets/search_suggestion.dart';
 
 class SearchBox extends StatefulWidget {
   const SearchBox({super.key});
@@ -8,58 +10,23 @@ class SearchBox extends StatefulWidget {
 }
 
 class _SearchBoxState extends State<SearchBox> {
-  // final List<Map<String, dynamic>> _allFoodItems = [
-  //   {
-  //     'id': 1,
-  //     'image': 'assets/images/1.png',
-  //     'name': 'Chicken',
-  //     'des': 'Dish',
-  //   },
-  //   {
-  //     'id': 2,
-  //     'image': 'assets/images/2.jpg',
-  //     'name': 'Paratha',
-  //     'des': 'Dish',
-  //   },
-  //   {
-  //     'id': 3,
-  //     'image': 'assets/images/3.jpeg',
-  //     'name': 'Biriyani',
-  //     'des': 'Dish',
-  //   },
-  //   {
-  //     'id': 4,
-  //     'image': 'assets/images/4.jpg',
-  //     'name': 'Pizza',
-  //     'des': 'Dish',
-  //   },
-  //   {
-  //     'id': 5,
-  //     'image': 'assets/images/5.jpg',
-  //     'name': 'Burger',
-  //     'des': 'Dish',
-  //   },
-  //   {
-  //     'id': 6,
-  //     'image': 'assets/images/6.jpg',
-  //     'name': 'Mandhi',
-  //     'des': 'Dish',
-  //   }
-  // ];
-
-  // List<Map<String, dynamic>> _foodItems = [];
-  // @override
-  // void initState() {
-  //   _foodItems = _allFoodItems;
-  //   super.initState();
-  // }
-
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
         Expanded(
           child: TextField(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => SearchPage(
+                    category: FoodCategory.foodCategories[0],
+                  ),
+                ),
+              );
+            },
+            readOnly: true,
             decoration: InputDecoration(
               filled: true,
               fillColor: Colors.white,

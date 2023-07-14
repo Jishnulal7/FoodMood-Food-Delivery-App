@@ -1,7 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:food_delivery/models/menu_item_model.dart';
 
-// ignore: must_be_immutable
 class Cart extends Equatable {
   final List<MenuItem> items;
 
@@ -22,7 +21,8 @@ class Cart extends Equatable {
 
   Map itemQuantity(items) {
     var quantity = {};
-    print(items);
+    // print(items);
+    
     items.forEach((item) {
       if (!quantity.containsKey(item)) {
         quantity[item] = 1;
@@ -30,12 +30,12 @@ class Cart extends Equatable {
         quantity[item] += 1;
       }
     });
-    print('quantity:${quantity}');
+    // print('quantity:${quantity}');
     return quantity;
   }
 
   double get subtotal {
-    print(items);
+    // print(items);
     return items.fold(0, (total, current) => total + current.price);
   }
 

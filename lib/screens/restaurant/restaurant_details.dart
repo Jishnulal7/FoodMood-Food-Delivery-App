@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:food_delivery/bloc/cart/cart_bloc.dart';
+
+
 // import 'package:food_delivery/models/menu_item_model.dart';
 import 'package:food_delivery/models/restaurant_model.dart';
 import 'package:food_delivery/screens/order/cart_screen.dart';
+
 
 import 'package:food_delivery/screens/restaurant/restaurant_info.dart';
 
@@ -40,12 +43,13 @@ class RestaurantDetailsScreen extends StatelessWidget {
                     context,
                     MaterialPageRoute(
                       builder: (context) {
-                        return const CartScreen();
+                        return  const CartScreen();
                       },
                     ),
                   );
                 },
-                child: const Text('Cart'),
+                child: const Text('Cart'),  
+                
               ),
             ],
           ),
@@ -112,40 +116,38 @@ Widget _buildMenuItems(Restaurant restaurant, BuildContext context, int index) {
                   Padding(
                     padding: const EdgeInsets.symmetric(
                         horizontal: 20, vertical: 10),
-                    child: Container(
-                      child: ListTile(
-                        contentPadding: EdgeInsets.zero,
-                        dense: true,
-                        title: Text(
-                          menuitems.name,
-                          style: Theme.of(context)
-                              .textTheme
-                              .bodyMedium!
-                              .copyWith(fontWeight: FontWeight.bold),
-                        ),
-                        subtitle: Text(menuitems.description),
-                        trailing: Row(
-                          mainAxisSize: MainAxisSize.min,
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            Text('₹${menuitems.price}'),
-                            BlocBuilder<CartBloc, CartState>(
-                              builder: (context, state) {
-                                return IconButton(
-                                  onPressed: () {
-                                    context
-                                        .read<CartBloc>()
-                                        .add(AddItem(menuitems));
-                                  },
-                                  icon: Icon(
-                                    Icons.add_circle,
-                                    color: Theme.of(context).primaryColor,
-                                  ),
-                                );
-                              },
-                            )
-                          ],
-                        ),
+                    child: ListTile(
+                      contentPadding: EdgeInsets.zero,
+                      dense: true,
+                      title: Text(
+                        menuitems.name,
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodyMedium!
+                            .copyWith(fontWeight: FontWeight.bold),
+                      ),
+                      subtitle: Text(menuitems.description),
+                      trailing: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          Text('₹${menuitems.price}'),
+                          BlocBuilder<CartBloc, CartState>(
+                            builder: (context, state) {
+                              return IconButton(
+                                onPressed: () {
+                                  context
+                                      .read<CartBloc>()
+                                      .add(AddItem(menuitems));
+                                },
+                                icon: Icon(
+                                  Icons.add_circle,
+                                  color: Theme.of(context).primaryColor,
+                                ),
+                              );
+                            },
+                          )
+                        ],
                       ),
                     ),
                   ),

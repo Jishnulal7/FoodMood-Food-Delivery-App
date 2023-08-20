@@ -39,3 +39,14 @@ Follow these steps to get the FoodMood app up and running on your local machine:
    ```sh
    flutter run
 
+## Contributing
+
+Contributions are welcome! If you'd like to contribute to FoodMood, follow these steps:
+
+1. Fork the repository.
+2. Create a new branch for your feature/fix: git checkout -b feature/your-feature-name
+3. Make your changes and test thoroughly.
+4. Commit your changes: git commit -m "Add your message"
+5. Push the changes to your branch: git push origin feature/your-feature-name
+6. Create a pull request describing your changes.
+

@@ -50,3 +50,6 @@ Contributions are welcome! If you'd like to contribute to FoodMood, follow these
  5. Push the changes to your branch: git push origin feature/your-feature-name
  6. Create a pull request describing your changes.
 
+## Acknowledgments
+
+FoodMood was developed by Jishnulal.

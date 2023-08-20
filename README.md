@@ -32,9 +32,10 @@ Follow these steps to get the FoodMood app up and running on your local machine:
 3. Navigate to the project directory:
    ```sh
    cd FoodMood-Food-Delivery-App
-4.Install dependencies:
+4. Install dependencies:
    ```sh
    flutter pub get
-5.Run the app:
+5. Run the app:
    ```sh
    flutter run
+

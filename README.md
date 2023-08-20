@@ -29,3 +29,12 @@ Follow these steps to get the FoodMood app up and running on your local machine:
 2. Clone this repository:
    ```sh
    git clone https://github.com/Jishnulal7/FoodMood-Food-Delivery-App.git
+3. Navigate to the project directory:
+   ```sh
+   cd FoodMood-Food-Delivery-App
+4.Install dependencies:
+   ```sh
+   flutter pub get
+5.Run the app:
+   ```sh
+   flutter run

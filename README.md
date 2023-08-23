@@ -17,11 +17,13 @@ FoodMood is a user-friendly food delivery app built with Flutter. It allows user
 
 ## Screenshots
 
-![Screenshot 1](img/Screenshot-1.jpg)
-![Screenshot 2](img/Screenshot-2.jpg)
-![Screenshot 3](img/Screenshot-3.jpg)
-![Screenshot 4](img/Screenshot-4.jpg)
-![Screenshot 5](img/Screenshot-5.jpg)
+<p align="center">
+  <img src="img/Screenshot-1.jpg" alt="Screenshot 1" width="200"/>
+  <img src="img/Screenshot-2.jpg" alt="Screenshot 2" width="200"/>
+  <img src="img/Screenshot-3.jpg" alt="Screenshot 3" width="200"/>
+  <img src="img/Screenshot-4.jpg" alt="Screenshot 4" width="200"/>
+  <img src="img/Screenshot-5.jpg" alt="Screenshot 5" width="200"/>
+</p>
 
 ## Getting Started
 

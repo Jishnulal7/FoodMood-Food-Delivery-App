@@ -1,14 +1,11 @@
 // ignore_for_file: override_on_non_overriding_member
-
 import 'dart:async';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'package:equatable/equatable.dart';
 import 'package:food_mood_app/models/models.dart';
 
 import '../../repositories/place/places_repo.dart';
-
 
 part 'autocomplete_event.dart';
 part 'autocomplete_state.dart';

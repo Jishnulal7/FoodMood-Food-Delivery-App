@@ -1,9 +1,5 @@
-
-
-
+import 'package:flutter/material.dart';
 import 'package:food_mood_app/screens/signup&in/signin_screen.dart';
-
-import 'exports.dart';
 import 'otp_screen.dart';
 
 

@@ -1,11 +1,12 @@
 // ignore_for_file: invalid_use_of_visible_for_testing_member
 
+import 'dart:async';
 
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:food_mood_app/repositories/geolocation/geolocation/geolocation_repository.dart';
 
-import '../blocs.dart';
-
-
+import '../../models/models.dart';
+import '../../repositories/repositories.dart';
 part 'geolocation_event.dart';
 part 'geolocation_state.dart';
 

@@ -1,12 +1,9 @@
-
-
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:food_mood_app/bloc/cart/cart_bloc.dart';
 import 'package:food_mood_app/screens/home/home_screen.dart';
 import 'package:food_mood_app/simple_block_observer.dart';
 import 'package:food_mood_app/utils/themes.dart';
-
-import 'bloc/blocs.dart';
 
 void main() {
   Bloc.observer = SimpleBlocObserver();

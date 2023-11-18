@@ -4,7 +4,7 @@ class Price extends Equatable {
   final int id;
   final String price;
 
-  Price({
+  const Price({
     required this.id,
     required this.price,
   });
@@ -13,8 +13,8 @@ class Price extends Equatable {
   List<Object?> get props => [id, price];
 
   static List<Price> prices = [
-    Price(id: 1, price: '\$'),
-    Price(id: 2, price: '\$\$'),
-    Price(id: 3, price: '\$\$\$'),
+    const Price(id: 1, price: '\$'),
+    const Price(id: 2, price: '\$\$'),
+    const Price(id: 3, price: '\$\$\$'),
   ];
 }

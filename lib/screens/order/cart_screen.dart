@@ -1,8 +1,8 @@
-
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:food_mood_app/bloc/cart/cart_bloc.dart';
-
 import 'address_screen.dart';
-import 'order_exports.dart';
+
 
 class CartScreen extends StatelessWidget {
   const CartScreen({super.key});
@@ -42,7 +42,7 @@ class CartScreen extends StatelessWidget {
                     );
                   }
                   if (state is CartLoaded) {
-                    return state.cart.items.length == 0
+                    return state.cart.items.isEmpty
                         ? Container(
                             width: double.infinity,
                             margin: const EdgeInsets.only(top: 5),

@@ -3,10 +3,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:food_mood_app/screens/signup&in/privacy_policy_screen.dart';
 import 'package:food_mood_app/screens/signup&in/signin_screen.dart';
 import 'package:food_mood_app/screens/signup&in/terms_condition_screen.dart';
-
-
 import '../home/home_screen.dart';
-import 'exports.dart';
+
 
 
 

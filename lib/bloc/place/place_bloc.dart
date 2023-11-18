@@ -1,9 +1,10 @@
 // ignore_for_file: override_on_non_overriding_member
+import 'dart:async';
 
+import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../models/models.dart';
 import '../../repositories/place/places_repo.dart';
-import '../blocs.dart';
-
 part 'place_event.dart';
 part 'place_state.dart';
 

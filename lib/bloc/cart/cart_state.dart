@@ -13,6 +13,7 @@ class CartLoading extends CartState {
 }
 
 class CartLoaded extends CartState {
+  @override
   final Cart cart;
 
   const CartLoaded({required this.cart});

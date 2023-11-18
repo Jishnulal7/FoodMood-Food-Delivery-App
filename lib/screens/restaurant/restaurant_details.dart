@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:food_mood_app/screens/restaurant/restaurant_info.dart';
-
-
-
-import '../../bloc/blocs.dart';
 import '../../bloc/cart/cart_bloc.dart';
 import '../../models/restaurant_model.dart';
 import '../order/cart_screen.dart';

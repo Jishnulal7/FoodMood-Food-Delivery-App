@@ -1,8 +1,7 @@
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:food_mood_app/models/menu_item_model.dart';
-
 import '../../models/cart_model.dart';
-import '../blocs.dart';
-
+import '../../models/models.dart';
 part 'cart_event.dart';
 part 'cart_state.dart';
 
@@ -30,7 +29,7 @@ class CartBloc extends Bloc<CartEvent, CartState> {
     Emitter<CartState> emit,
   ) {
     // Check if the item is already in the cart
-    final currentCart = this.state.cart;
+    final currentCart = state.cart;
     final item = event.item;
     bool isItemInCart =
         currentCart.items.any((existingItem) => existingItem == item);
@@ -60,7 +59,7 @@ class CartBloc extends Bloc<CartEvent, CartState> {
     Emitter<CartState> emit,
   ) {
     // Check if the item is actually in the cart
-    var cart = this.state.cart;
+    var cart = state.cart;
     final item = event.item;
     bool isItemInCart = cart.items.any((existingItem) => existingItem == item);
 
@@ -79,7 +78,7 @@ class CartBloc extends Bloc<CartEvent, CartState> {
     Emitter<CartState> emit,
   ) {
     // Loop through all of the items in the cart and remove them
-    var cart = this.state.cart;
+    var cart = state.cart;
     cart = cart.copyWith(items: []);
     emit(CartLoaded(cart: cart));
   }

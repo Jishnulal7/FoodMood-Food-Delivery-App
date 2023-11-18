@@ -5,7 +5,7 @@ class DeliveryTime extends Equatable {
   final String value;
   final DateTime time;
 
-  DeliveryTime({
+  const DeliveryTime({
     required this.id,
     required this.value,
     required this.time,

@@ -1,9 +1,5 @@
-
-
+import 'package:flutter/material.dart';
 import 'package:food_mood_app/screens/signup&in/signin_screen.dart';
-
-import 'exports.dart';
-
 
 class SuccessScreen extends StatefulWidget {
   const SuccessScreen({super.key});

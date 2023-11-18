@@ -94,7 +94,7 @@ class SaveButton extends StatelessWidget {
             if (placeState is PlaceLoaded) {
               // Access the selected Place object
               final place = placeState.place;
-              print(place.name);
+              debugPrint(place.name);
 
               // For example, you can call a method to save it to a database.
               // Access the place details using place attributes like place.name, place.lat, place.lon, etc.

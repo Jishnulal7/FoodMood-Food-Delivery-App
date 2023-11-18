@@ -1,10 +1,8 @@
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-
 import 'package:http/http.dart' as http;
 import 'dart:convert' as convert;
-
-import '../../../bloc/blocs.dart';
 import '../../../models/place_autocomplete_model.dart';
+import '../../../models/place_model.dart';
 import '../../place/base_place_repo.dart';
 
 class PlacesRepository extends BasePlacesRepository {
